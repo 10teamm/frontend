@@ -5,14 +5,17 @@ import SearchSectionOnSearch from "@/components/searchPage/SearchSectionOnSearch
 
 const SearchResultPage = () => {
   return (
-    <MainContainer>
-      <title>어디가냥?같이가개! | 검색</title>
-      <meta name="description" content="어디가냥?같이가개! 검색 페이지" />
-
-      <ScrollToTopButton />
+    <div>
       <SearchSectionOnSearch />
-      <SearchResultSection />
-    </MainContainer>
+      <MainContainer>
+        <title>어디가냥?같이가개! | 검색</title>
+        <meta name="description" content="어디가냥?같이가개! 검색 페이지" />
+
+        <ScrollToTopButton />
+
+        <SearchResultSection />
+      </MainContainer>
+    </div>
   );
 };
 

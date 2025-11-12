@@ -22,8 +22,8 @@ const SearchBar = () => {
   useEnterKey(onSearch);
 
   return (
-    <div className="w-[1200px] h-fit flex flex-wrap rounded-[40px] bg-[var(--search-bar-bg)] px-[12px] py-[12px] gap-[12px] border-[1px] border-[var(--search-element-border)] z-20">
-      <div className="flex flex-grow gap-[12px]">
+    <div className="max-w-[1200px] w-full max-[700px]:w-[calc(100%-30px)] h-fit flex flex-wrap rounded-[40px] bg-[var(--search-bar-bg)] px-[12px] py-[12px] gap-[12px] border-[1px] border-[var(--search-element-border)] z-20">
+      <div className="flex flex-grow gap-[12px] max-[700px]:flex-col max-[700px]:justify-center">
         <SearchSelectBox
           options={Object.keys(regionMap)}
           placeholder="지역명"
@@ -54,7 +54,7 @@ const SearchBar = () => {
           />
           <Input
             id="place_input"
-            className="w-full h-full rounded-[26px] font-semibold bg-[var(--search-element-bg)] !text-[14px] pl-[44px] focus:ring-[1px] focus:ring-[var(--main-color)] placeholder:text-[var(--place-neutral)]"
+            className="w-full h-[48px] rounded-[26px] font-semibold bg-[var(--search-element-bg)] !text-[14px] pl-[44px] focus:ring-[1px] focus:ring-[var(--main-color)] placeholder:text-[var(--place-neutral)]"
             placeholder="장소명"
             defaultValue={inputkeyword}
             onChange={(e) => setInputKeyword(e.target.value)}
@@ -62,7 +62,7 @@ const SearchBar = () => {
         </div>
       </div>
 
-      <div className="flex flex-col justify-center w-[48px] h-[48px] shrink-0">
+      <div className="flex flex-col justify-center w-[48px] h-[48px] shrink-0 max-[700px]:hidden block">
         <button className="w-[40px] h-[40px] cursor-pointer" onClick={onSearch}>
           <img
             src="/assets/buttons/search_button.png"
@@ -79,6 +79,12 @@ const SearchBar = () => {
           onChange={setSelectedSubRegion}
         />
       )}
+      <button
+        className="w-full h-[40px] rounded-[26px] font-semibold bg-[var(--main-color)] text-[var(--main-text)] cursor-pointer transition hover:brightness-97 active:brightness-92 max-[700px]:block hidden"
+        onClick={onSearch}
+      >
+        <p>검색하기</p>
+      </button>
     </div>
   );
 };

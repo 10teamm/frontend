@@ -83,7 +83,11 @@ const SearchBar = () => {
         className="w-full h-[40px] rounded-[26px] font-semibold bg-[var(--main-color)] text-[var(--main-text)] cursor-pointer transition hover:brightness-97 active:brightness-92 max-[700px]:block hidden"
         onClick={onSearch}
       >
-        <p>검색하기</p>
+        <img
+          className="w-[24px] h-[24px] mx-auto my-auto"
+          alt="search"
+          src="/assets/buttons/search.png"
+        />
       </button>
     </div>
   );

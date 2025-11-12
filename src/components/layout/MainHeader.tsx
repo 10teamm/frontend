@@ -7,13 +7,13 @@ import LoginOnHeader from "./header/LoginOnHeader";
 const MainHeader = () => {
   const { isLoggedIn } = useAuthStore();
   return (
-    <header className="w-full h-[72px] bg-[var(--main-color)] flex justify-center font-dunggeunmiso font-bold text-[var(--header-text)] text-[24px]">
-      <div className="w-[1200px] h-full flex justify-between items-center">
+    <header className="w-full h-[72px] bg-[var(--main-color)] flex justify-center font-dunggeunmiso font-bold text-[var(--header-text)] text-[24px] max-[700px]:h-[60px]">
+      <div className="w-[1200px] h-full flex justify-between items-center max-[1250px]:px-[20px]">
         <Link to={"/"} className="cursor-pointer">
           <img
             src="/assets/logo/main_logo.png"
             alt="main_logo"
-            className="w-[276px]"
+            className="w-[276px] max-[700px]:w-[200px]"
           />
         </Link>
         {isLoggedIn ? <ProfileOnHeader /> : <LoginOnHeader />}

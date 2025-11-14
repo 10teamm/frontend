@@ -22,7 +22,7 @@ const SearchBar = () => {
   useEnterKey(onSearch);
 
   return (
-    <div className="max-w-[1200px] w-full max-[700px]:w-[calc(100%-30px)] h-fit flex flex-wrap rounded-[40px] bg-[var(--search-bar-bg)] px-[12px] py-[12px] gap-[12px] border-[1px] border-[var(--search-element-border)] z-20">
+    <div className="max-w-[1200px] w-full max-[1220px]:w-[calc(100%-30px)] h-fit flex flex-wrap rounded-[40px] bg-[var(--search-bar-bg)] px-[12px] py-[12px] gap-[12px] border-[1px] border-[var(--search-element-border)] z-20">
       <div className="flex flex-grow gap-[12px] max-[700px]:flex-col max-[700px]:justify-center">
         <SearchSelectBox
           options={Object.keys(regionMap)}

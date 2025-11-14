@@ -50,6 +50,14 @@ const addNewLines = (str: string) => {
   return str.replace(/\|/g, "\n");
 };
 
+const cutStringAtNewLine = (str: string) => {
+  const newlineIndex = str.indexOf("\n");
+
+  if (newlineIndex !== -1 && str.length > 80) {
+    return str.substring(0, newlineIndex);
+  } else return str;
+};
+
 export {
   saveLoginLocation,
   copyPlacePage,
@@ -57,4 +65,5 @@ export {
   loginConfirmAlert,
   removeTags,
   addNewLines,
+  cutStringAtNewLine,
 };

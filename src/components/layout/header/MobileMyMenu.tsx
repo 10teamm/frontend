@@ -36,7 +36,7 @@ const MobileMyMenu = ({ isOpen, onClose }: Props) => {
               </button>
             </div>
 
-            <div className="flex flex-col gap-4 items-start pl-[12px] pt-[8px]">
+            <div className="flex flex-col gap-4 items-start pl-[20px] pt-[8px]">
               <MobileMyMenuButton
                 onClick={() => navigate("/aiplanner")}
                 onClose={onClose}

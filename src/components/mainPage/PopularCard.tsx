@@ -3,6 +3,7 @@ import MainCard from "./MainCard";
 import type { PopularCardData } from "@/types/apiResponseTypes";
 import { getDistanceInKm } from "@/lib/searchResultCardUtils";
 import { useLocationStore } from "@/stores/locationStore";
+import { Navigation } from "lucide-react";
 
 interface Props {
   place: PopularCardData;
@@ -13,31 +14,43 @@ const PopularCard = ({ place }: Props) => {
   const { lat, lon, isCoordsSet } = useLocationStore();
   return (
     <MainCard
-      className="relative w-[285px] h-[380px] bg-cover cursor-pointer"
+      className="relative max-w-[285px] w-full aspect-[285/380] bg-cover cursor-pointer"
       style={{
         backgroundImage: `url(${place.image || "/assets/images/common/default_thumbnail.jpg"})`,
       }}
       onClick={() => navigate(`/placedetail/${place.contentId}`)}
     >
-      <div className="w-full h-[348px] flex flex-col gap-[191px] pl-[16px] pt-[4px] text-[var(--card-text)] z-10">
-        <div className="h-[115px] pt-[16px]">
-          <p className="h-[77px] text-[48px] font-bold">{place.ranking}</p>
-          <p className="h-[38px] text-[24px] font-semibold break-words whitespace-normal">
+      <div className="w-full h-full flex flex-col justify-between pl-[16px] pt-[4px] pb-[24px] text-[var(--card-text)] z-50 max-[900px]:pl-[12px] max-[700px]:pt-[8px] max-[700px]:pb-[16px] max-[600px]:pb-[10px]">
+        {/* 상단 영역 */}
+        <div className="h-fit pt-[16px] max-[900px]:pt-[12px] max-[700px]:pt-[8px]">
+          <p className="h-fit text-[48px] font-bold max-[700px]:text-[32px] max-[600px]:text-[24px]">
+            {place.ranking}
+          </p>
+          <p className="h-fit text-[24px] font-semibold break-words whitespace-normal max-[700px]:text-[18px] max-[600px]:text-[14px]">
             {place.title}
           </p>
         </div>
-        <div className="h-[42px]">
-          <p className="h-[22px] text-[16px]">{place.hashtag[4]}</p>
-          <p className="h-[22px] text-[14px]">
-            {isCoordsSet
-              ? `여기서 ${getDistanceInKm(lon!, lat!, place.mapx, place.mapy)}km`
-              : "위치권한이 없습니다."}
+        {/* 하단 영역 */}
+        <div className="">
+          <p className="h-fit text-[16px] max-[700px]:hidden">
+            {place.hashtag[4]}
+          </p>
+          <p className="h-fit text-[14px] max-[700px]:text-[12px] max-[600px]:text-[10px]">
+            {isCoordsSet ? (
+              <div className="flex flex-row items-center gap-[4px]">
+                <p className="block max-[700px]:hidden">여기서</p>
+                <Navigation className="hidden max-[700px]:block w-[10px]" />
+                {`${getDistanceInKm(lon!, lat!, place.mapx, place.mapy)}km`}
+              </div>
+            ) : (
+              "위치권한이 없습니다."
+            )}
           </p>
         </div>
       </div>
       {/*상단 그라데이션*/}
       <div
-        className="absolute top-0 left-0 w-full h-[157px] rounded-[16px] z-0 pointer-events-none"
+        className="absolute top-0 left-0 w-full h-[42%] rounded-[16px] z-0 pointer-events-none"
         style={{
           backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, #000000 100%)`,
         }}
@@ -45,7 +58,7 @@ const PopularCard = ({ place }: Props) => {
 
       {/*하단 그라데이션*/}
       <div
-        className="absolute bottom-0 left-0 w-full h-[120px] rounded-[16px] z-0 pointer-events-none"
+        className="absolute bottom-0 left-0 w-full h-[31%] rounded-[16px] z-0 pointer-events-none"
         style={{
           backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 170%)`,
         }}

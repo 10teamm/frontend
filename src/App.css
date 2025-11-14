@@ -325,3 +325,12 @@
   background-clip: padding-box;
   border-radius: 99999999px;
 }
+
+@layer utilities {
+  .scrollbar-hide {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
+  }
+}

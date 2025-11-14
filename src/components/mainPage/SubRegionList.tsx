@@ -9,7 +9,7 @@ interface Props {
 const SubRegionList = ({ subregions, current, onChange }: Props) => {
   const isAllActive = current.length === 0;
   return (
-    <div className="w-full flex flex-wrap mt-[15px] gap-[15px]">
+    <div className="w-full flex flex-wrap mt-[15px] gap-[15px] max-[700px]:justify-center max-[700px]:my-[12px]">
       <button
         key={"전체"}
         onClick={() => onChange([])}

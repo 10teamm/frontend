@@ -13,6 +13,10 @@ const PopularPlacesSection = () => {
         <p className="text-center text-[14px] text-[var(--place-neutral)] py-8">
           불러오는 중...
         </p>
+      ) : resultList.length < 1 ? (
+        <p className="text-center text-[14px] text-[var(--place-neutral)] py-8">
+          집계된 장소가 없습니다.
+        </p>
       ) : (
         <SearchResultList searchDataList={resultList} />
       )}

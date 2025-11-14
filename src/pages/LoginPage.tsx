@@ -5,17 +5,17 @@ import AutoLoginCheckBox from "@/components/loginPage/AutoLoginCheckBox";
 
 const LoginPage = () => {
   return (
-    <main className="flex flex-col h-[1000.7px] pt-[170px] pb-[330px] gap-[56px] items-center justify-center">
+    <main className="flex flex-col h-[1000px] pt-[170px] pb-[330px] gap-[56px] items-center justify-center max-[700px]:h-fit max-[700px]:pb-[200px]">
       <title>어디가냥?같이가개! | 로그인</title>
       <meta name="description" content="어디가냥?같이가개! 로그인 페이지" />
 
       <img
-        className="w-[471px] "
+        className="w-[472px] max-[700px]:w-[380px]"
         src="/assets/logo/footer_logo.png"
         alt="login_logo"
       />
 
-      <div className="w-[514px] h-[253px] flex flex-col gap-[24px]">
+      <div className="max-w-[514px] w-full max-[700px]:w-[400px] flex flex-col gap-[24px]">
         <div className="w-full h-[205px] flex flex-col gap-[16px]">
           <KakaoLoginButton />
           <NaverLoginButton />

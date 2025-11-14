@@ -35,14 +35,14 @@ const MainHeaderMobile = () => {
         flex justify-center font-dunggeunmiso font-bold text-[var(--header-text)] text-[24px]
         transition-transform duration-300 ease-in-out
         ${isVisible ? "translate-y-0" : "-translate-y-full"}
-        z-50 max-[700px]:block hidden`}
+        z-30 max-[700px]:block hidden`}
     >
       <div className="w-full h-full flex justify-between items-center px-[20px]">
         <Link to={"/"} className="cursor-pointer">
           <img
             src="/assets/logo/main_logo.png"
             alt="main_logo"
-            className="w-[200px]"
+            className="w-[170px]"
           />
         </Link>
         {isLoggedIn ? <LoginProfileOnHeaderMobile /> : <LoginOnHeader />}

@@ -20,13 +20,13 @@ const PopularCard = ({ place }: Props) => {
       }}
       onClick={() => navigate(`/placedetail/${place.contentId}`)}
     >
-      <div className="w-full h-full flex flex-col justify-between pl-[16px] pt-[4px] pb-[24px] text-[var(--card-text)] z-50 max-[900px]:pl-[12px] max-[700px]:pt-[8px] max-[700px]:pb-[16px] max-[600px]:pb-[10px]">
+      <div className="w-full h-full flex flex-col justify-between pl-[16px] pt-[4px] pb-[24px] text-[var(--card-text)] z-50 max-[900px]:pl-[12px] max-[700px]:pt-[8px] max-[700px]:pb-[16px] max-[600px]:pb-[10px] max-[600px]:pt-[8px] max-[400px]:pl-[6px]">
         {/* 상단 영역 */}
-        <div className="h-fit pt-[16px] max-[900px]:pt-[12px] max-[700px]:pt-[8px]">
-          <p className="h-fit text-[48px] font-bold max-[700px]:text-[32px] max-[600px]:text-[24px]">
+        <div className="h-fit pt-[16px] max-[900px]:pt-[12px] max-[700px]:pt-[0px]">
+          <p className="h-fit text-[48px] font-bold max-[700px]:text-[32px] max-[600px]:text-[24px] max-[400px]:text-[14px]">
             {place.ranking}
           </p>
-          <p className="h-fit text-[24px] font-semibold break-words whitespace-normal max-[700px]:text-[18px] max-[600px]:text-[14px]">
+          <p className="h-fit text-[24px] font-semibold break-words whitespace-normal max-[700px]:text-[18px] max-[600px]:text-[14px] max-[400px]:text-[10px]">
             {place.title}
           </p>
         </div>
@@ -35,7 +35,7 @@ const PopularCard = ({ place }: Props) => {
           <p className="h-fit text-[16px] max-[700px]:hidden">
             {place.hashtag[4]}
           </p>
-          <p className="h-fit text-[14px] max-[700px]:text-[12px] max-[600px]:text-[10px]">
+          <div className="h-fit text-[14px] max-[700px]:text-[12px] max-[600px]:text-[10px] max-[400px]:text-[8px]">
             {isCoordsSet ? (
               <div className="flex flex-row items-center gap-[4px]">
                 <p className="block max-[700px]:hidden">여기서</p>
@@ -45,7 +45,7 @@ const PopularCard = ({ place }: Props) => {
             ) : (
               "위치권한이 없습니다."
             )}
-          </p>
+          </div>
         </div>
       </div>
       {/*상단 그라데이션*/}

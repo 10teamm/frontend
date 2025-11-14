@@ -5,6 +5,7 @@ import { usePopularPlaces } from "@/hooks/usePopularPlaces";
 import SectionTitle from "./SectionTitle";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import { useCarouselController } from "@/hooks/useCarouselController";
+import PopularTooltipMobile from "./PopularTooltipMobile";
 
 const PopularSection = () => {
   const { resultList, slides, mobileSlides } = usePopularPlaces();
@@ -18,6 +19,7 @@ const PopularSection = () => {
         <div className="flex gap-[10px] w-fit h-full items-center">
           <SectionTitle title="인기" />
           <PopularToolTip />
+          <PopularTooltipMobile />
         </div>
 
         <Link

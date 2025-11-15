@@ -1,42 +1,42 @@
-import AiRecCard from "./AiRecCard";
-import { useAiRecSection } from "@/hooks/useAiRecSection";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
-const AiRecList = () => {
-  const {
-    loading,
-    resultList,
-    handleIndicatorClick,
-    index,
-    toggleLeft,
-    toggleRight,
-  } = useAiRecSection();
+import { useAiRecSection } from "@/hooks/useAiRecSection";
+import AiRecCard from "./AiRecCard";
+import { useCarouselController } from "@/hooks/useCarouselController";
+import SectionTitle from "./SectionTitle";
+
+const AiRecSection = () => {
+  const { loading, resultList } = useAiRecSection();
+
+  const { plugin, setApi, current, count, movePrev, moveNext, moveIndex } =
+    useCarouselController(resultList);
 
   return (
-    <section className="relative flex flex-col gap-[24px] w-full h-[483px] py-[36px]">
-      <p className="text-[32px] font-dunggeunmiso font-bold text-[var(--main-color)]">
-        AI 추천
-      </p>
-      <article className="h-[304px] w-[1200px] mx-auto relative rounded-[14px] overflow-hidden">
-        {/* 카드 슬라이드 */}
-        <div
-          className="flex transition-transform duration-700 ease-in-out"
-          style={{
-            transform: `translateX(-${index * 1200}px)`,
-            width: `${100 * resultList.length}%`,
-          }}
-        >
+    <section className="flex flex-col gap-[24px] w-full max-h-[483px] py-[36px] max-[700px]:py-0 max-[700px]:gap-[12px]">
+      <SectionTitle title="AI 추천" />
+      <Carousel
+        className="relative max-w-[1200px] w-full"
+        plugins={[plugin.current]}
+        setApi={setApi}
+      >
+        <CarouselContent>
           {resultList.map((place, i) => (
-            <div key={i} className="w-[1200px] flex-shrink-0">
+            <CarouselItem key={i}>
               <AiRecCard place={place} />
-            </div>
+            </CarouselItem>
           ))}
-        </div>
+        </CarouselContent>
+
         {/* 페이지 카운터 */}
         {!loading && resultList.length !== 0 && (
-          <div className="absolute top-[243px] left-[1097px] w-[56px] h-[32px] rounded-[60px] flex justify-center items-center gap-[4px] bg-[#8c8c8c] font-semibold text-[var(--main-text)]">
-            <p>{index + 1}</p>
+          <div className="absolute top-[243px] right-[46px] w-[56px] h-[32px] rounded-[60px] flex justify-center items-center gap-[4px] bg-[#8c8c8c] font-semibold text-[var(--main-text)] max-[700px]:hidden">
+            <p>{current + 1}</p>
             <p>/</p>
-            <p>{resultList.length}</p>
+            <p>{count}</p>
           </div>
         )}
 
@@ -48,30 +48,33 @@ const AiRecList = () => {
             </p>
           </div>
         )}
-      </article>
+      </Carousel>
+
       {/* 인디케이터 */}
       <div className="flex gap-[8px] w-full h-[8px] mx-auto justify-center items-center">
-        <button className="w-[24px] h-[24px] cursor-pointer transition hover:brightness-20 active:brightness-10">
+        <button className="w-[24px] h-[24px] cursor-pointer transition hover:brightness-20 active:brightness-10 max-[700px]:hidden">
           <img
             src="/assets/buttons/indicator_left.png"
             alt="left"
             className="w-full h-full"
-            onClick={toggleLeft}
+            onClick={movePrev}
           />
         </button>
         {resultList.map((_, i) => (
           <button
             key={i}
-            className={`h-full rounded-[16px] transition-width duration-500 ${i === index ? "w-[40px] bg-[var(--main-color)]" : "w-[8px] bg-[var(--indicator-disabled)]"} cursor-pointer`}
-            onClick={() => handleIndicatorClick(i)}
+            className={`h-full rounded-[16px] transition-width duration-500 ${i === current ? "w-[40px] bg-[var(--main-color)]" : "w-[8px] bg-[var(--indicator-disabled)]"} cursor-pointer`}
+            onClick={() => {
+              moveIndex(i);
+            }}
           />
         ))}
-        <button className="w-[24px] h-[24px] cursor-pointer transition hover:brightness-20 active:brightness-10">
+        <button className="w-[24px] h-[24px] cursor-pointer transition hover:brightness-20 active:brightness-10 max-[700px]:hidden">
           <img
             src="/assets/buttons/indicator_right.png"
             alt="left"
             className="w-full h-full"
-            onClick={toggleRight}
+            onClick={moveNext}
           />
         </button>
       </div>
@@ -79,4 +82,4 @@ const AiRecList = () => {
   );
 };
 
-export default AiRecList;
+export default AiRecSection;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { fetchSmart } from "@/lib/fetchUtils";
 import { useAuthStore } from "@/stores/authStore";
 import type { PopularCardData } from "@/types/apiResponseTypes";
@@ -36,7 +36,29 @@ const usePopularPlaces = () => {
     fetchLoadPopularList();
   }, [isLoggedIn]);
 
-  return { loading, resultList };
+  // 슬라이드
+  const slides = useMemo(() => {
+    const result: PopularCardData[][] = [];
+    for (let i = 0; i < resultList.length; i += 4) {
+      result.push(resultList.slice(i, i + 4));
+    }
+    return result;
+  }, [resultList]);
+
+  const mobileSlides = useMemo(() => {
+    const result: PopularCardData[][] = [];
+    for (let i = 0; i <= 6; i += 4) {
+      result.push(resultList.slice(i, Math.min(i + 4, 7)));
+    }
+
+    if (result.length === 1 && resultList.length === 4) {
+      result.push([]);
+    }
+
+    return result;
+  }, [resultList]);
+
+  return { loading, resultList, slides, mobileSlides };
 };
 
 export { usePopularPlaces };

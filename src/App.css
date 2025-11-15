@@ -325,3 +325,24 @@
   background-clip: padding-box;
   border-radius: 99999999px;
 }
+
+.scrollbar-style-horizon::-webkit-scrollbar {
+  height: 12px;
+}
+
+.scrollbar-style-horizon::-webkit-scrollbar-thumb {
+  background: rgba(191, 191, 191);
+  border-top: 8px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 0px solid transparent;
+  border-right: 0px solid transparent;
+  background-clip: padding-box;
+}
+@layer utilities {
+  .scrollbar-hide {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
+  }
+}

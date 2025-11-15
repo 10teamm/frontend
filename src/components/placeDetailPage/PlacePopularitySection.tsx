@@ -1,8 +1,7 @@
 import { useAuthStore } from "@/stores/authStore";
 import SVGIcons from "../common/SVGIcons";
-import { copyPlacePage } from "@/lib/commonUtils";
 import { heartClickedWithLogin } from "@/lib/placeDetailUtils";
-import { loginConfirmAlert } from "@/lib/commonUtils";
+import { loginConfirmAlert, mobileShare } from "@/lib/commonUtils";
 import { useNavigate } from "react-router-dom";
 import { usePlacePopularity } from "@/hooks/usePlacePopularity";
 
@@ -67,11 +66,11 @@ const PlacePupularitySection = ({
           </div>
         </div>
         <button
-          className="w-[75px] h-[24px] flex gap-[2px] items-center cursor-pointer transition hover:underline underline-offset-[3px]"
-          onClick={() => copyPlacePage(placeId)}
+          className="w-fit h-[24px] flex gap-[2px] items-center cursor-pointer transition hover:underline underline-offset-[3px]"
+          onClick={() => mobileShare(placeId)}
         >
           <SVGIcons name="placedetailShare" width={24} height={24} color="" />
-          <p className="w-[49px] h-[20px] text-[14px] font-semibold">
+          <p className="w-[49px] h-[20px] text-[14px] font-semibold max-[700px]:hidden">
             공유하기
           </p>
         </button>

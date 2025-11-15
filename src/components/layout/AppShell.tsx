@@ -4,6 +4,7 @@ import CustomToast from "@/components/common/CustomToast";
 import ScrollToTop from "@/hooks/ScrollToTop";
 import AppRoutes from "@/components/routes/AppRoutes";
 import { useLocation } from "react-router-dom";
+import MainHeaderMobile from "./MainHeaderMobile";
 
 const AppShell = () => {
   const location = useLocation();
@@ -17,7 +18,12 @@ const AppShell = () => {
       <ScrollToTop />
       <CustomToast />
       <div className="App font-pretendard">
-        {!hideFooter && <MainHeader />}
+        {!hideFooter && (
+          <>
+            <MainHeader />
+            <MainHeaderMobile />
+          </>
+        )}
         <AppRoutes />
         {!hideFooter && <MainFooter />}
       </div>

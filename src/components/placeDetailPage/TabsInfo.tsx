@@ -12,9 +12,9 @@ const TabsInfo = ({ placeData }: Props) => {
   const [active, setActive] = useState<TabKey>("basic");
 
   return (
-    <div className="w-full h-fit flex flex-col gap-[44px]">
+    <div className="w-full h-fit flex flex-col gap-[44px] max-[700px]:gap-[28px]">
       {/* 탭 버튼 섹션 */}
-      <div className="w-full flex h-[40px]">
+      <div className="w-full flex h-[40px] max-[700px]:h-[32px]">
         {(["basic", "guide", "detail", "companion"] as TabKey[]).map(
           (t, idx) => {
             const isActive = active === t;
@@ -29,7 +29,8 @@ const TabsInfo = ({ placeData }: Props) => {
                 key={t}
                 onClick={() => setActive(t)}
                 className={[
-                  `h-full w-[300px] font-semibold text-[18px] border-[1px] cursor-pointer ${isActive ? "bg-[var(--tab-bg)] text-[var(--main-color)] border-[var(--tab-fg)]" : "text-[var(--place-detail-heart)] border-[var(--search-element-border)]"}`,
+                  `h-full w-[300px] font-semibold text-[18px] border-[1px] cursor-pointer ${isActive ? "bg-[var(--tab-bg)] text-[var(--main-color)] border-[var(--tab-fg)]" : "text-[var(--place-detail-heart)] border-[var(--search-element-border)]"}
+                  max-[700px]:text-[16px]`,
                   radius,
                 ].join(" ")}
               >

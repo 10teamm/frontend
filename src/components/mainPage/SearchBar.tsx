@@ -22,7 +22,7 @@ const SearchBar = () => {
   useEnterKey(onSearch);
 
   return (
-    <div className="max-w-[1200px] w-full max-[1220px]:w-[calc(100%-30px)] h-fit flex flex-wrap rounded-[40px] bg-[var(--search-bar-bg)] px-[12px] py-[12px] gap-[12px] border-[1px] border-[var(--search-element-border)] z-20">
+    <div className="max-w-[1200px] w-full max-[1220px]:w-[calc(100%-50px)] h-fit flex flex-wrap rounded-[40px] bg-[var(--search-bar-bg)] px-[12px] py-[12px] gap-[12px] border-[1px] border-[var(--search-element-border)] z-20">
       <div className="flex flex-grow gap-[12px] max-[700px]:flex-col max-[700px]:justify-center">
         <SearchSelectBox
           options={Object.keys(regionMap)}
@@ -50,11 +50,11 @@ const SearchBar = () => {
           <img
             src="/assets/icons/search.png"
             alt="search_icon"
-            className="absolute left-[16px] top-[12px] w-[24px] h-[24px]"
+            className="absolute left-[16px] top-[12px] w-[24px] h-[24px] max-[400px]:w-[20px] max-[400px]:h-[20px]"
           />
           <Input
             id="place_input"
-            className="w-full h-[48px] rounded-[26px] font-semibold bg-[var(--search-element-bg)] !text-[14px] pl-[44px] focus:ring-[1px] focus:ring-[var(--main-color)] placeholder:text-[var(--place-neutral)]"
+            className="w-full h-[48px] rounded-[26px] font-semibold bg-[var(--search-element-bg)] !text-[14px] pl-[44px] focus:ring-[1px] focus:ring-[var(--main-color)] placeholder:text-[var(--place-neutral)] max-[400px]:!text-[12px] max-[400px]:!h-[40px]"
             placeholder="장소명"
             defaultValue={inputkeyword}
             onChange={(e) => setInputKeyword(e.target.value)}
@@ -80,7 +80,7 @@ const SearchBar = () => {
         />
       )}
       <button
-        className="w-full h-[40px] rounded-[26px] font-semibold bg-[var(--main-color)] text-[var(--main-text)] cursor-pointer transition hover:brightness-97 active:brightness-92 max-[700px]:block hidden"
+        className="w-full h-[36px] rounded-[26px] font-semibold bg-[var(--main-color)] text-[var(--main-text)] cursor-pointer transition hover:brightness-97 active:brightness-92 max-[700px]:block hidden"
         onClick={onSearch}
       >
         <img

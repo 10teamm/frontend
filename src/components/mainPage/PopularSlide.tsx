@@ -5,12 +5,13 @@ import MorePopularCard from "./MorePopoularCard";
 
 interface Props {
   placeList: PopularCardData[];
+  isMobile: boolean;
 }
-const PopularSlide = ({ placeList }: Props) => {
+const PopularSlide = ({ placeList, isMobile }: Props) => {
   const targetCount = 4;
   const actualCount = placeList.length;
 
-  const shouldAddMoreCard = actualCount < targetCount;
+  const shouldAddMoreCard = isMobile && actualCount < targetCount;
 
   const dummyCount = Math.max(
     0,

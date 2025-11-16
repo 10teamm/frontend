@@ -20,7 +20,7 @@ const PopularTooltipMobile = () => {
           />
         </TooltipTrigger>
         <TooltipContent side="right" className="bg-[#262626] ">
-          <p className="text-[14px] text-[var(--tooltip-text)]">
+          <p className="text-[8px] text-[var(--tooltip-text)]">
             지난 24시간 동안 가장 조회수가 높았어요!
           </p>
         </TooltipContent>

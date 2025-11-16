@@ -29,6 +29,22 @@ const copyCurrentAddress = () => {
     });
 };
 
+const mobileShare = async (placeId: string) => {
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: "어디가냥? 같이가개!",
+        text: "반려동물과 함께하는 생활",
+        url: import.meta.env.VITE_FRONT_BASE_URL + `/placedetail/${placeId}`,
+      });
+    } catch (err) {
+      console.error("공유 실패:", err);
+    }
+  } else {
+    copyPlacePage(placeId);
+  }
+};
+
 const loginConfirmAlert = (navigate: ReturnType<typeof useNavigate>) => {
   // 로그인이 필요한 기능 클릭 시 alert후 로그인 페이지로 이동
   const goToLogin = window.confirm(
@@ -62,6 +78,7 @@ export {
   saveLoginLocation,
   copyPlacePage,
   copyCurrentAddress,
+  mobileShare,
   loginConfirmAlert,
   removeTags,
   addNewLines,

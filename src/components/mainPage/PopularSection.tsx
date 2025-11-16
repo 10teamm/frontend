@@ -64,7 +64,7 @@ const PopularSection = () => {
             <CarouselContent>
               {slides.map((slide, i) => (
                 <CarouselItem key={i}>
-                  <PopularSlide placeList={slide} />
+                  <PopularSlide placeList={slide} isMobile={false} />
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -96,7 +96,7 @@ const PopularSection = () => {
             <CarouselContent>
               {mobileSlides.map((slide, i) => (
                 <CarouselItem key={i}>
-                  <PopularSlide placeList={slide} />
+                  <PopularSlide placeList={slide} isMobile={true} />
                 </CarouselItem>
               ))}
             </CarouselContent>

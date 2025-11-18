@@ -47,11 +47,15 @@ const usePopularPlaces = () => {
 
   const mobileSlides = useMemo(() => {
     const result: PopularCardData[][] = [];
-    for (let i = 0; i <= 6; i += 4) {
-      result.push(resultList.slice(i, Math.min(i + 4, 7)));
+    for (let i = 0; i <= 7; i += 3) {
+      result.push(resultList.slice(i, Math.min(i + 3, 8)));
     }
 
-    if (result.length === 1 && resultList.length === 4) {
+    if (
+      resultList.length > 0 &&
+      result.length < 3 &&
+      resultList.length % 3 === 0
+    ) {
       result.push([]);
     }
 

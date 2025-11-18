@@ -1,6 +1,7 @@
 import ReviewList from "./ReviewList";
 import SortButton from "../../common/SortButton";
 import type { Review } from "@/types/apiResponseTypes";
+import MobileReviewList from "./MobileReviewList";
 
 interface Props {
   sort: "r" | "c";
@@ -40,7 +41,10 @@ const ReviewListSection = ({
           불러오는 중...
         </p>
       ) : reviews.length > 0 ? (
-        <ReviewList reviews={reviews} />
+        <>
+          <ReviewList reviews={reviews} />
+          <MobileReviewList reviews={reviews} />
+        </>
       ) : (
         <p className="text-center text-[14px] text-[var(--place-neutral)] py-8 border-t-1 border-b-1">
           작성된 리뷰가 없습니다.
@@ -50,15 +54,15 @@ const ReviewListSection = ({
       {/* 더보기 버튼 */}
       {hasMore && reviews.length > 0 && (
         <button
-          className="w-fit h-[24px] mx-auto flex gap-[2px] mt-[24px] items-center cursor-pointer hover:underline"
+          className="w-fit h-[24px] mx-auto flex gap-[2px] mt-[24px] items-center cursor-pointer hover:underline max-[700px]:h-[14px]"
           onClick={handleLoadMore}
           disabled={loading}
         >
-          <p className="text-[14px] text-[var(--place-neutral)]">
+          <p className="text-[14px] text-[var(--place-neutral)] max-[700px]:text-[10px]">
             {loading ? "불러오는 중..." : "댓글 더보기"}
           </p>
           <img
-            className="w-[24px] h-[24px]"
+            className="h-full aspect-square"
             src="/assets/icons/more_review.png"
             alt="리뷰 더보기"
           />

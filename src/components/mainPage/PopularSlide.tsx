@@ -8,7 +8,7 @@ interface Props {
   isMobile: boolean;
 }
 const PopularSlide = ({ placeList, isMobile }: Props) => {
-  const targetCount = 4;
+  const targetCount = isMobile ? 3 : 4;
   const actualCount = placeList.length;
 
   const shouldAddMoreCard = isMobile && actualCount < targetCount;
@@ -21,7 +21,7 @@ const PopularSlide = ({ placeList, isMobile }: Props) => {
   const dummyArray = Array.from({ length: dummyCount });
 
   return (
-    <div className="max-w-[1200px] w-full h-fit flex gap-[20px] max-[900px]:gap-[15px] max-[700px]:gap-[6px]">
+    <div className="max-w-[1200px] w-full h-fit flex gap-[20px] max-[900px]:gap-[15px] max-[700px]:gap-[10px]">
       {placeList.map((place) => (
         <PopularCard key={place.contentId} place={place} />
       ))}

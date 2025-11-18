@@ -42,28 +42,11 @@ const MobileReviewCard = ({ review }: Props) => {
           </p>
         </div>
         {/* 날짜 */}
-        <p className="text-[11px]">
+        <p className="text-[11px] text-[var(--search-element-text)]">
           {formatDateToString(new Date(review.createdAt)).slice(2)}
         </p>
       </div>
       <div className="w-full h-fit flex">
-        {/* 썸네일 */}
-        {/* <MainCard
-          className={`w-[212px] h-full ${review.images[0]?.imageUrl ? "cursor-pointer" : ""}`}
-          onClick={() => {
-            if (review.images.length > 0) {
-              modalOpen(review.images, 0);
-            }
-          }}
-        >
-          <img
-            src={
-              review.images[0]?.imageUrl ??
-              "/assets/images/common/review_default_thumbnail.png"
-            }
-            className="w-full h-full object-cover object-center"
-          />
-        </MainCard> */}
         <div className="w-[972px] h-full flex flex-col gap-[4px]">
           <div className="w-full h-[24px] flex justify-between items-center">
             {/* 별점 */}
@@ -87,8 +70,8 @@ const MobileReviewCard = ({ review }: Props) => {
                 >
                   <SVGIcons
                     name="placedetailHeart"
-                    width={16}
-                    height={16}
+                    width={12}
+                    height={12}
                     color={
                       likeChecked
                         ? "var(--main-color)"
@@ -101,7 +84,7 @@ const MobileReviewCard = ({ review }: Props) => {
               <div className="w-px h-[12px] bg-[var(--search-element-border)]" />
 
               <button
-                className="w-fit h-fit ml-auto text-[10px] font-semibold cursor-pointer"
+                className="w-fit h-fit ml-auto text-[10px] cursor-pointer text-[var(--search-element-text)]"
                 onClick={() => {
                   isLoggedIn
                     ? setReportOpen(true)

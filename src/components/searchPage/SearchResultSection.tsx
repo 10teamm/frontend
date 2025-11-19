@@ -2,7 +2,6 @@ import SearchResultList from "./SearchResultList";
 import SortButton from "../common/SortButton";
 import { useSearchListSection } from "@/hooks/useSearchListSection";
 import { useLocationStore } from "@/stores/locationStore";
-import MobileSearchResultCard from "./MobileSearchResultCard";
 import MobileResultList from "./MobileResultList";
 
 const SearchResultSection = () => {

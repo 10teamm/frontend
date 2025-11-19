@@ -41,7 +41,7 @@ const SearchResultCard = ({ cardData }: Props) => {
         onClick={() => navigate(`/placedetail/${cardData.contentId}`)}
       >
         <MainCard
-          className="w-[340px] h-full bg-cover bg-center relative"
+          className="w-[340px] h-full bg-cover bg-center relative flex-shrink-0"
           style={{
             backgroundImage: `url(${cardData.image || "/assets/images/common/default_thumbnail.jpg"})`,
           }}
@@ -75,9 +75,9 @@ const SearchResultCard = ({ cardData }: Props) => {
             />
           </div>
         </MainCard>
-        <div className="w-[828px] h-[114px] flex flex-col gap-[12px]">
-          <div className="w-full h-[32px] flex flex-row justify-between">
-            <div className="w-fit h-full flex items-center justify-between">
+        <div className="w-[828px] h-fit flex flex-col gap-[12px]">
+          <div className="w-full h-fit flex flex-row justify-between">
+            <div className="w-fit h-full flex items-center justify-between max-[1220px]:flex-col max-[1220px]:items-start">
               <p className="text-[20px] font-semibold mr-[4px]">
                 {cardData.title}
               </p>
@@ -93,7 +93,7 @@ const SearchResultCard = ({ cardData }: Props) => {
                 </p>
               </div>
             </div>
-            <div className="w-[200px] h-[full] flex flex-row gap-[4px] justify-end items-center">
+            <div className="w-fit h-[full] flex flex-row gap-[4px] justify-end items-center">
               <SVGIcons
                 name="vector"
                 width={24}

@@ -29,12 +29,12 @@ const PlacePupularitySection = ({
     });
 
   return (
-    <section className="w-full h-[73px] flex flex-col gap-[16px] py-[16px] text-[var(--place-neutral)]">
+    <section className="w-full h-[72px] flex flex-col gap-[16px] py-[16px] text-[var(--place-neutral)] max-[700px]:py-[8px] max-[700px]:gap-[8px]">
       <div className="w-full h-[24px] flex justify-between">
-        <div className="w-[110px] flex gap-[16px]">
-          <div className="w-fit flex gap-[4px]">
+        <div className="w-fit flex gap-[16px]">
+          <div className="w-fit h-fit flex gap-[4px] items-center">
             <button
-              className="w-[24px] h-[24px] cursor-pointer"
+              className="w-[24px] h-[24px] cursor-pointer max-[700px]:w-[16px] max-[700px]:h-[16px]"
               onClick={() => {
                 isLoggedIn
                   ? heartClickedWithLogin(
@@ -47,29 +47,68 @@ const PlacePupularitySection = ({
                   : loginConfirmAlert(navigate);
               }}
             >
+              <div className="w-full h-full block max-[700px]:hidden">
+                <SVGIcons
+                  name="placedetailHeart"
+                  width={24}
+                  height={24}
+                  color={
+                    likeChecked
+                      ? "var(--main-color)"
+                      : "var(--place-detail-heart)"
+                  }
+                />
+              </div>
+              <div className="w-full h-full hidden max-[700px]:block">
+                <SVGIcons
+                  name="placedetailHeart"
+                  width={16}
+                  height={16}
+                  color={
+                    likeChecked
+                      ? "var(--main-color)"
+                      : "var(--place-detail-heart)"
+                  }
+                />
+              </div>
+            </button>
+            <p className="w-fit h-fit text-[16px] max-[700px]:text-[14px]">
+              {likedAmount}
+            </p>
+          </div>
+          <div className="w-fit flex gap-[2px] h-fit items-center">
+            <div className="w-full h-full block max-[700px]:hidden">
               <SVGIcons
-                name="placedetailHeart"
+                name="placedetailView"
                 width={24}
                 height={24}
-                color={
-                  likeChecked
-                    ? "var(--main-color)"
-                    : "var(--place-detail-heart)"
-                }
+                color=""
               />
-            </button>
-            <p className="w-fit h-[22px] text-[16px]">{likedAmount}</p>
-          </div>
-          <div className="w-fit flex gap-[2px]">
-            <SVGIcons name="placedetailView" width={24} height={24} color="" />
-            <p className="w-fit h-[22px] text-[16px]">{viewCount}</p>
+            </div>
+            <div className="w-full h-full hidden max-[700px]:block">
+              <SVGIcons
+                name="placedetailView"
+                width={16}
+                height={16}
+                color=""
+              />
+            </div>
+
+            <p className="w-fit h-fit text-[16px] max-[700px]:text-[14px]">
+              {viewCount}
+            </p>
           </div>
         </div>
         <button
-          className="w-fit h-[24px] flex gap-[2px] items-center cursor-pointer transition hover:underline underline-offset-[3px]"
+          className="w-fit h-fit flex gap-[2px] items-center cursor-pointer transition hover:underline underline-offset-[3px]"
           onClick={() => mobileShare(placeId)}
         >
-          <SVGIcons name="placedetailShare" width={24} height={24} color="" />
+          <div className="w-full h-full block max-[700px]:hidden">
+            <SVGIcons name="placedetailShare" width={24} height={24} color="" />
+          </div>
+          <div className="w-full h-full hidden max-[700px]:block">
+            <SVGIcons name="placedetailShare" width={16} height={16} color="" />
+          </div>
           <p className="w-[49px] h-[20px] text-[14px] font-semibold max-[700px]:hidden">
             공유하기
           </p>

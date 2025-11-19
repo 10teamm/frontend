@@ -50,11 +50,14 @@ const SearchBar = () => {
           <img
             src="/assets/icons/search.png"
             alt="search_icon"
-            className="absolute left-[16px] top-[12px] w-[24px] h-[24px] max-[400px]:w-[20px] max-[400px]:h-[20px]"
+            className="absolute left-[16px] top-[12px] w-[24px] h-[24px] 
+            max-[700px]:top-[13px]
+            "
           />
           <Input
             id="place_input"
-            className="w-full h-[48px] rounded-[26px] font-semibold bg-[var(--search-element-bg)] !text-[14px] pl-[44px] focus:ring-[1px] focus:ring-[var(--main-color)] placeholder:text-[var(--place-neutral)] max-[400px]:!text-[12px] max-[400px]:!h-[40px]"
+            className="w-full h-[48px] rounded-[26px] font-semibold bg-[var(--search-element-bg)] !text-[14px] pl-[44px] focus:ring-[1px] focus:ring-[var(--main-color)] placeholder:text-[var(--place-neutral)]
+            max-[400px]:!text-[16px] max-[400px]:!h-[50px]"
             placeholder="장소명"
             defaultValue={inputkeyword}
             onChange={(e) => setInputKeyword(e.target.value)}
@@ -80,7 +83,7 @@ const SearchBar = () => {
         />
       )}
       <button
-        className="w-full h-[36px] rounded-[26px] font-semibold bg-[var(--main-color)] text-[var(--main-text)] cursor-pointer transition hover:brightness-97 active:brightness-92 max-[700px]:block hidden"
+        className="w-full h-[40px] rounded-[26px] font-semibold bg-[var(--main-color)] text-[var(--main-text)] cursor-pointer transition hover:brightness-97 active:brightness-92 max-[700px]:block hidden"
         onClick={onSearch}
       >
         <img

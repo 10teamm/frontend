@@ -2,6 +2,8 @@ import SearchResultList from "./SearchResultList";
 import SortButton from "../common/SortButton";
 import { useSearchListSection } from "@/hooks/useSearchListSection";
 import { useLocationStore } from "@/stores/locationStore";
+import MobileSearchResultCard from "./MobileSearchResultCard";
+import MobileResultList from "./MobileResultList";
 
 const SearchResultSection = () => {
   const {
@@ -18,9 +20,9 @@ const SearchResultSection = () => {
   const { isCoordsSet } = useLocationStore();
 
   return (
-    <section className="w-full flex flex-col gap-[32px] pt-[44px] pb-[32px] ">
+    <section className="w-full flex flex-col gap-[32px] pt-[44px] pb-[32px] max-[700px]:pb-[12px] max-[700px]:pb-[12px] max-[700px]:gap-[16px]">
       <div className="w-full h-[55px] flex justify-between border-b-[1px]">
-        <p className="font-semibold text-[24px] ">검색결과</p>
+        <p className="font-semibold text-[24px]">검색결과</p>
         <div className="w-fit h-[38px] flex gap-[12px]">
           <SortButton
             name={"인기 순"}
@@ -54,9 +56,12 @@ const SearchResultSection = () => {
           불러오는 중...
         </p>
       ) : resultList.length > 0 ? (
-        <SearchResultList searchDataList={slicedData} />
+        <>
+          <SearchResultList searchDataList={slicedData} />
+          <MobileResultList searchDataList={slicedData} />
+        </>
       ) : (
-        <p className="text-center text-[14px] text-[var(--place-neutral)] py-8 border-t-1 border-b-1">
+        <p className="text-center text-[14px] text-[var(--place-neutral)] py-8 border-b-1">
           선택된 조건에 해당하는 검색 결과가 없습니다.
         </p>
       )}

@@ -3,7 +3,7 @@ import { Tooltip, TooltipTrigger, TooltipContent } from "../ui/tooltip";
 const PopularToolTip = () => {
   return (
     <Tooltip>
-      <TooltipTrigger className="max-[700px]:hidden block">
+      <TooltipTrigger>
         <img
           src="/assets/icons/tooltip_icon.png"
           alt="tooltip icon"

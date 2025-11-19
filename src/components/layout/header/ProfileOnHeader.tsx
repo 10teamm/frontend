@@ -6,7 +6,7 @@ const ProfileOnHeader = () => {
     <div className="w-fit h-[56px] flex gap-[24px] items-center">
       <Link
         to="/aiplanner"
-        className="cursor-pointer hover:underline underline-offset-[6px] max-[700px]:hidden"
+        className="cursor-pointer hover:underline underline-offset-[6px]"
       >
         AI 플래너
       </Link>

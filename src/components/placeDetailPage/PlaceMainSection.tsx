@@ -12,11 +12,9 @@ const PlaceMainSection = ({ title, thumbnail, imgList }: Props) => {
   const { modalOpen } = usePhotoModalStore();
   const extendedList = [{ imageId: 0, imageUrl: thumbnail }, ...imgList];
   return (
-    <section className="w-[full] h-[510px] flex flex-col items-center gap-[16px] pt-[88px] pb-[64px] max-[700px]:h-[460px]">
+    <section className="w-[full] h-[510px] flex flex-col items-center gap-[16px] pt-[88px] pb-[64px]">
       {/* 제목 */}
-      <h2 className="w-fit h-[51px] text-[32px] font-semibold max-[700px]:text-[24px]">
-        {title}
-      </h2>
+      <h2 className="w-fit h-[51px] text-[32px] font-semibold">{title}</h2>
       {/* 썸네일 + 사진 갯수 */}
       <div className="w-[340px] h-[291px] flex flex-col gap-[16px]">
         {/* 썸네일 */}
@@ -27,7 +25,7 @@ const PlaceMainSection = ({ title, thumbnail, imgList }: Props) => {
             onClick={() => modalOpen(extendedList, 0)}
           />
         </div>
-        <p className="w-full h-[20px] flex justify-center items-center max-[700px]:text-[14px]">{`(1/${extendedList.length})`}</p>
+        <p className="w-full h-[20px] flex justify-center items-center">{`(1/${extendedList.length})`}</p>
       </div>
 
       {/* <div className="w-[136px] h-[24px] flex gap-[4px] items-center">

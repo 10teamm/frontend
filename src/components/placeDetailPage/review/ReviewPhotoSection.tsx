@@ -2,7 +2,6 @@ import useSlideIndex from "@/hooks/useSlideIndex";
 import ReviewPhotoSlide from "./ReviewPhotoSlide";
 
 import type { ResponseImage } from "@/types/apiResponseTypes";
-import ReviewPhotoCard from "./ReviewPhotoCard";
 
 interface Props {
   reviewImageList: ResponseImage[];
@@ -21,16 +20,13 @@ const ReviewPhotoSection = ({ reviewImageList, reviewCount }: Props) => {
     <section className="w-full h-fit flex flex-col gap-[24px] border-t-[1px] border-[var(--search-element-border)] pt-[8px]">
       {/* 전체 리뷰 갯수 */}
       <div className="w-fit h-[32px] flex gap-[8px] items-center">
-        <h2 className="text-[20px] font-semibold max-[700px]:text-[18px]">
-          리뷰
-        </h2>
-        <p className="text-[14px] max-[700px]:text-[16px]">({reviewCount}건)</p>
+        <h2 className="text-[20px] font-semibold">리뷰</h2>
+        <p className="text-[14px]">({reviewCount}건)</p>
       </div>
 
-      {/* 데스크톱 뷰 */}
       {reviewImageList.length > 0 && (
         // 리뷰 사진 모음
-        <div className="w-full h-[150px] flex flex-row items-center justify-between mb-[56px] max-[1220px]:hidden">
+        <div className="w-full h-[150px] flex flex-row items-center justify-between mb-[56px]">
           <button
             className="w-[24px] h-[24px] cursor-pointer"
             onClick={handlePrev}
@@ -74,18 +70,6 @@ const ReviewPhotoSection = ({ reviewImageList, reviewCount }: Props) => {
           </button>
         </div>
       )}
-
-      {/* 모바일 뷰 */}
-      <div className="h-fit max-[1220px]:flex flex-row gap-[10px] overflow-x-auto hidden scrollbar-style-horizon">
-        {reviewImageList.map((image, i) => (
-          <ReviewPhotoCard
-            key={i}
-            img={image.imageUrl}
-            index={i}
-            photoList={reviewImageList}
-          />
-        ))}
-      </div>
     </section>
   );
 };

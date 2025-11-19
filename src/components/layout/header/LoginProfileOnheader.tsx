@@ -10,7 +10,7 @@ const LoginProfileOnHeader = () => {
 
   return (
     <div
-      className="relative w-fit max-[700px]:hidden"
+      className="relative w-fit"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
@@ -27,7 +27,7 @@ const LoginProfileOnHeader = () => {
 
       {/* 드롭다운 메뉴 */}
       {isOpen && (
-        <div className="absolute top-[40px] right-[-37px] z-50 w-[100px] bg-white py-1 rounded shadow-md border font-pretendard font-semibold">
+        <div className="absolute top-[40px] right-[-37px] z-10 w-[100px] bg-white py-1 rounded shadow-md border font-pretendard font-semibold">
           <button
             onClick={() => navigate("/myinfo")}
             className="flex w-full text-left px-4 py-2 hover:bg-gray-100 text-sm text-black justify-center cursor-pointer"

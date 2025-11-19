@@ -9,7 +9,7 @@ const PlaceInfoSection = ({ placeData }: Props) => {
   return (
     <section className="w-full h-fit flex flex-col gap-[24px] pb-[72px]">
       {placeData && (
-        <p className="w-fit min-h-[32px] text-[16px] flex items-center max-[700px]:text-[15px]/[24px]">
+        <p className="w-fit min-h-[32px] text-[16px] flex items-center">
           {placeData.overview}
         </p>
       )}

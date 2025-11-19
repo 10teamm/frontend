@@ -1,34 +1,14 @@
 import type { PopularCardData } from "@/types/apiResponseTypes";
 import PopularCard from "./PopularCard";
-import DummyPopularCard from "./DummyPopularCard";
-import MorePopularCard from "./MorePopoularCard";
 
 interface Props {
   placeList: PopularCardData[];
-  isMobile: boolean;
 }
-const PopularSlide = ({ placeList, isMobile }: Props) => {
-  const targetCount = 4;
-  const actualCount = placeList.length;
-
-  const shouldAddMoreCard = isMobile && actualCount < targetCount;
-
-  const dummyCount = Math.max(
-    0,
-    targetCount - actualCount - (shouldAddMoreCard ? 1 : 0)
-  );
-
-  const dummyArray = Array.from({ length: dummyCount });
-
+const PopularSlide = ({ placeList }: Props) => {
   return (
-    <div className="max-w-[1200px] w-full h-fit flex gap-[20px] max-[900px]:gap-[15px] max-[700px]:gap-[6px]">
+    <div className="w-[1200px] h-full flex gap-[20px] flex-shrink-0">
       {placeList.map((place) => (
         <PopularCard key={place.contentId} place={place} />
-      ))}
-
-      {shouldAddMoreCard && <MorePopularCard />}
-      {dummyArray.map((_, i) => (
-        <DummyPopularCard key={`dummy-${i}`} />
       ))}
     </div>
   );

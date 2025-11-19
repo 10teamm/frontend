@@ -6,7 +6,7 @@ const ScrollToTopButton = () => {
       className="
   fixed bottom-20 
   right-[max(16px,calc((100vw-1200px)/2))]
-  rounded-[76px] z-35 cursor-pointer transition hover:brightness-97 active:brightness-92 max-[700px]:hidden
+  rounded-[75.6px] z-35 cursor-pointer transition hover:brightness-97 active:brightness-92
 "
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     >

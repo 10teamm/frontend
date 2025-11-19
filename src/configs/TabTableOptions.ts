@@ -4,7 +4,7 @@ export const labels: Record<TabKey, string> = {
   basic: "기본 정보",
   guide: "이용 안내",
   detail: "상세 정보",
-  companion: "동반 정보",
+  companion: "반려동물 동반 정보",
 };
 
 //반려동물은 공통

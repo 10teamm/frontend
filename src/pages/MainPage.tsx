@@ -16,7 +16,6 @@ const MainPage = () => {
         <ThemeSection />
         <PopularSection />
         <AiRecSection />
-
         <ScrollToTopButton />
       </MainContainer>
     </div>

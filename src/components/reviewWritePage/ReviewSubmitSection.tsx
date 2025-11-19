@@ -8,7 +8,7 @@ interface Props {
 
 const ReviewSubmitSection = ({ setIsSaveOpen, setIsCancelOpen }: Props) => {
   return (
-    <section className="w-full h-[45px] flex gap-[16px] justify-end">
+    <section className="w-full h-[45px] flex gap-[16px] justify-end max-[700px]:justify-center">
       <DefaultButtonConfirm
         w={103}
         h={45}

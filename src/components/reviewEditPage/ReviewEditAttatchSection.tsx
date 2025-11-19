@@ -21,11 +21,11 @@ const ReviewEditAttatchSection = ({
   removeImageByIndex,
 }: Props) => {
   return (
-    <div className="w-[812px] h-[210px] flex gap-[44px]">
+    <div className="w-full h-[210px] flex gap-[44px]">
       <MenuLabel text="사진 첨부" />
       {/* 사진 첨부 패널 */}
-      <div className="w-[668px] h-[210px] flex flex-col gap-[24px]">
-        <div className="w-[184px] h-[45px] flex gap-[24px] items-center">
+      <div className="w-full h-[210px] flex flex-col gap-[24px]">
+        <div className="w-full h-[45px] flex gap-[24px] items-center">
           <DefaultButtonConfirm
             text="사진 첨부하기"
             w={138}
@@ -46,14 +46,16 @@ const ReviewEditAttatchSection = ({
           />
         </div>
         {/* 사진 목록 패널 */}
-        <div className="w-[668px] h-[141px] flex gap-[16px]">
-          {images.map((image, i) => (
-            <AttatchedEditPhotoCard
-              key={i}
-              img={image}
-              onXClick={() => removeImageByIndex(i)}
-            />
-          ))}
+        <div className="w-full h-fit overflow-x-auto scrollbar-hide">
+          <div className="flex gap-[16px] w-max max-[700px]:gap-[10px]">
+            {images.map((image, i) => (
+              <AttatchedEditPhotoCard
+                key={i}
+                img={image}
+                onXClick={() => removeImageByIndex(i)}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

@@ -47,7 +47,7 @@ const ReviewWritePage = () => {
             불러오는 중...
           </p>
         ) : (
-          <div className="w-full h-[645px] flex flex-col gap-[68px]">
+          <div className="w-full h-fit flex flex-col gap-[68px]">
             {/* 제목 + 리뷰 +사진첨부 */}
             <div className="w-full h-[532px] flex flex-col gap-[72px]">
               {/* 제목 + 리뷰 */}

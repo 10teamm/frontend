@@ -17,16 +17,16 @@ const MyReviewCard = ({ review }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   return (
-    <div className="w-full h-[229px] flex border-b-[1px] border-[(--search-element-border)]">
-      <div className="w-full h-[212px] flex flex-col gap-[8px]">
+    <div className="w-full h-[229px] flex border-b-[1px] border-[(--search-element-border)] max-[1220px]:h-fit max-[1220px]:pb-[20px]">
+      <div className="w-full h-[212px] flex flex-col gap-[8px] max-[1220px]:h-fit">
         <div className="w-full h-[36px] flex justify-between">
           <div className="w-fit h-full flex gap-[8px] items-center">
-            <p className="w-fit text-[20px] font-semibold">
+            <p className="w-fit text-[20px] font-semibold max-[1220px]:text-[16px]">
               {review.contentTitle}
             </p>
             <StarsFromRating rating={review.score} />
           </div>
-          <div className="w-[164px] h-full flex justify-between">
+          <div className="w-[164px] h-full flex justify-between max-[1220px]:hidden">
             <DefaultButtonConfirm
               w={77}
               h={36}
@@ -44,14 +44,14 @@ const MyReviewCard = ({ review }: Props) => {
           </div>
         </div>
         {/* 리뷰 내용 */}
-        <div className="w-full h-[168px] flex flex-col gap-[12px]">
+        <div className="w-full h-[168px] flex flex-col gap-[12px] max-[1220px]:h-fit">
           {/* 사진 */}
           {review.images.length > 0 && (
             <div className="w-full h-[56px] flex gap-[8px]">
               {review.images.map((image, i) => (
                 <MainCard
                   key={i}
-                  className={`w-[76px] h-full cursor-pointer`}
+                  className={`w-[76px] h-full cursor-pointer max-[1220px]:rounded-[8px]`}
                   onClick={() => modalOpen(review.images, i)}
                 >
                   <img
@@ -65,9 +65,28 @@ const MyReviewCard = ({ review }: Props) => {
               ))}
             </div>
           )}
-          <div className="w-full min-h-[100x] flex-1 rounded-[16px] px-[18px] py-[14px] border-[1px] border-[var(--textarea-border)] text-[16px] text-[var(--label-normal)]">
+          <div
+            className="w-full min-h-[100x] flex-1 rounded-[16px] px-[18px] py-[14px] border-[1px] border-[var(--textarea-border)] text-[16px] text-[var(--label-normal)]
+          max-[1220px]:px-[8px] max-[1220px]:text-[12px] max-[1220px]:py-[8px] max-[1220px]:rounded-[8px]"
+          >
             {review.content}
           </div>
+        </div>
+        <div className="w-full h-full justify-end gap-[4px] max-[1220px]:flex hidden">
+          <DefaultButtonConfirm
+            w={40}
+            h={20}
+            text="수정"
+            textSize={9}
+            onClick={() => navigate(`/reviewedit/${review.reviewId}`)}
+          />
+          <DefaultButtonCancel
+            w={40}
+            h={20}
+            text="삭제"
+            textSize={9}
+            onClick={() => setIsOpen(true)}
+          />
         </div>
       </div>
       {isOpen && (

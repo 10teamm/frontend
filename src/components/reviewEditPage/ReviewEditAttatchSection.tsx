@@ -21,18 +21,30 @@ const ReviewEditAttatchSection = ({
   removeImageByIndex,
 }: Props) => {
   return (
-    <div className="w-full h-[210px] flex gap-[44px]">
+    <div className="w-full h-fit flex gap-[44px]">
       <MenuLabel text="사진 첨부" />
       {/* 사진 첨부 패널 */}
-      <div className="w-full h-[210px] flex flex-col gap-[24px]">
+      <div className="w-full h-fit flex flex-col gap-[24px]">
         <div className="w-full h-[45px] flex gap-[24px] items-center">
-          <DefaultButtonConfirm
-            text="사진 첨부하기"
-            w={138}
-            h={45}
-            textSize={18}
-            onClick={openFilePicker}
-          />
+          <div className="max-[700px]:hidden">
+            <DefaultButtonConfirm
+              text="사진 첨부하기"
+              w={138}
+              h={45}
+              textSize={18}
+              onClick={openFilePicker}
+            />
+          </div>
+          <div className="max-[700px]:block hidden">
+            <DefaultButtonConfirm
+              text="첨부하기"
+              w={72}
+              h={40}
+              textSize={14}
+              onClick={openFilePicker}
+            />
+          </div>
+
           <p className="w-fit h-fit text-[14px]">
             {images.length + "/" + maxImages}
           </p>

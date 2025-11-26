@@ -2,7 +2,7 @@ import SideBarButton from "./SideBarButton";
 
 const SideBarMobile = () => {
   return (
-    <header className="w-full h-fit max-[1220px]:flex justify-between hidden">
+    <header className="w-full h-fit max-[1220px]:flex justify-between hidden border-t-[1px] border-b-[1px] py-[6px]">
       <SideBarButton
         href="/myinfo"
         inner="내 정보"

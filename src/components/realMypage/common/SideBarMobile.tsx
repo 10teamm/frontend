@@ -1,10 +1,8 @@
-import { useLocation } from "react-router-dom";
 import SideBarButton from "./SideBarButton";
 
-const SideBarFixed = () => {
-  const location = useLocation();
+const SideBarMobile = () => {
   return (
-    <aside className="min-w-[155px] h-fit flex flex-col gap-[8px] max-[1220px]:hidden">
+    <header className="w-full h-fit max-[1220px]:flex justify-between hidden">
       <SideBarButton
         href="/myinfo"
         inner="내 정보"
@@ -12,16 +10,16 @@ const SideBarFixed = () => {
       />
       <SideBarButton
         href="/mywish"
-        inner="최근 본 / 찜한 장소"
+        inner="최근 본 / 찜"
         isActive={location.pathname === "/mywish"}
       />
       <SideBarButton
         href="/myreview"
-        inner="방문한 장소 및 리뷰"
+        inner="내 리뷰"
         isActive={location.pathname === "/myreview"}
       />
-    </aside>
+    </header>
   );
 };
 
-export default SideBarFixed;
+export default SideBarMobile;

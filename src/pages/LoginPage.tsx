@@ -5,7 +5,7 @@ import AutoLoginCheckBox from "@/components/loginPage/AutoLoginCheckBox";
 
 const LoginPage = () => {
   return (
-    <main className="flex flex-col h-[1000px] pt-[170px] pb-[330px] gap-[56px] items-center justify-center max-[700px]:h-fit max-[700px]:pb-[200px] max-[700px]:px-[30px]">
+    <main className="flex flex-col h-[1000px] pt-[170px] pb-[330px] gap-[56px] items-center justify-center max-[700px]:h-fit max-[700px]:pb-[200px] max-[700px]:px-[80px]">
       <title>어디가냥?같이가개! | 로그인</title>
       <meta name="description" content="어디가냥?같이가개! 로그인 페이지" />
 

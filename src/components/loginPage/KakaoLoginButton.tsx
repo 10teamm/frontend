@@ -12,9 +12,9 @@ export default function KakaoLoginButton() {
       <img
         src="/assets/logo/kakao_logo.png"
         alt="kakao logo"
-        className="w-[24px] h-[24px] max-[400px]:w-[16px] max-[700px]:h-[16px]"
+        className="w-[24px] h-[24px] max-[700px]:w-[16px] max-[700px]:h-[16px]"
       />
-      <p>카카오로 시작하기</p>
+      <p className="max-[700px]:text-[14px]">카카오로 시작하기</p>
     </button>
   );
 }

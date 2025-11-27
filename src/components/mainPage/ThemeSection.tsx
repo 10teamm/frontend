@@ -19,10 +19,7 @@ const ThemeList = () => {
       </div>
 
       {/* 모바일 뷰 */}
-      <div
-        className="w-full h-fit max-[700px]:block hidden overflow-x-auto scrollbar-hide
-"
-      >
+      <div className="w-full h-fit max-[700px]:block hidden overflow-x-auto scrollbar-hide">
         <div className="flex gap-[12px] w-max">
           {categories.map((category, i) => (
             <ThemeCard

@@ -3,6 +3,7 @@ import RecentCard from "@/components/mypage/RecentCard";
 import { useAuthStore } from "@/stores/authStore";
 import { fetchRecentPlaces } from "@/lib/apiUtils";
 import RecentSlide from "@/components/mypage/RecentSlide";
+import RecentPlacesListMobile from "../realMypage/mywish/RecentPlacesListMobile";
 
 const RecentPlaces = () => {
   const { accessToken } = useAuthStore();
@@ -101,71 +102,76 @@ const RecentPlaces = () => {
   });
 
   return (
-    <div className="w-[939px]">
-      <h2 className="text-[20px] font-semibold mb-6">최근 본 장소</h2>
-
-      {recentList.length <= 4 ? (
-        <div className="w-full h-fit flex gap-[16px]">
-          {recentList.map((place, index) => (
-            <RecentCard
-              key={index}
-              id={place.contentId}
-              name={place.name || place.title}
-              image={place.image || place.imageUrl || place.thumbnail}
-              description={place.description}
-              isWish={place.isWish || false}
-              onToggleWish={handleToggleWish}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className="flex flex-col items-center relative w-[939px] h-full">
-          <div className="w-full h-full overflow-hidden">
-            <div
-              className="flex transition-transform duration-700 ease-in-out gap-[20px]"
-              style={{
-                transform: `translateX(-${slideIndex * 939}px)`,
-                width: `1px`,
-              }}
-            >
-              {slides.length > 0 &&
-                slides.map((slide, i) => (
-                  <RecentSlide
-                    key={i}
-                    placeList={slide}
-                    onToggleWish={handleToggleWish}
-                  />
-                ))}
-            </div>
+    <div className="w-full">
+      <h2 className="text-[20px] font-semibold mb-6 max-[1220px]:text-[18px]">
+        최근 본 장소
+      </h2>
+      {/* 데스크톱 뷰 */}
+      <div className="max-[1200px]:hidden block">
+        {recentList.length <= 4 ? (
+          <div className="w-full h-fit flex gap-[16px]">
+            {recentList.map((place, index) => (
+              <RecentCard
+                key={index}
+                id={place.contentId}
+                name={place.name || place.title}
+                image={place.image || place.imageUrl || place.thumbnail}
+                description={place.description}
+                isWish={place.isWish || false}
+                onToggleWish={handleToggleWish}
+              />
+            ))}
           </div>
+        ) : (
+          <div className="flex flex-col items-center relative w-[939px] h-full">
+            <div className="w-full h-full overflow-hidden">
+              <div
+                className="flex transition-transform duration-700 ease-in-out gap-[20px]"
+                style={{
+                  transform: `translateX(-${slideIndex * 939}px)`,
+                  width: `1px`,
+                }}
+              >
+                {slides.length > 0 &&
+                  slides.map((slide, i) => (
+                    <RecentSlide
+                      key={i}
+                      placeList={slide}
+                      onToggleWish={handleToggleWish}
+                    />
+                  ))}
+              </div>
+            </div>
 
-          {/* 이동 버튼 */}
-          {slides.length > 1 && (
-            <>
-              <button
-                className="absolute left-0 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[40px] h-[40px] cursor-pointer"
-                onClick={handlePrev}
-              >
-                <img
-                  src="/assets/buttons/button_left.png"
-                  alt="left"
-                  className="w-full h-full transition hover:brightness-80"
-                />
-              </button>
-              <button
-                className="absolute right-5 translate-x-1/2 top-1/2 -translate-y-1/2 w-[40px] h-[40px] cursor-pointer"
-                onClick={handleNext}
-              >
-                <img
-                  src="/assets/buttons/button_right.png"
-                  alt="right"
-                  className="w-full h-full transition hover:brightness-80"
-                />
-              </button>
-            </>
-          )}
-        </div>
-      )}
+            {/* 이동 버튼 */}
+            {slides.length > 1 && (
+              <>
+                <button
+                  className="absolute left-0 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[40px] h-[40px] cursor-pointer"
+                  onClick={handlePrev}
+                >
+                  <img
+                    src="/assets/buttons/button_left.png"
+                    alt="left"
+                    className="w-full h-full transition hover:brightness-80"
+                  />
+                </button>
+                <button
+                  className="absolute right-5 translate-x-1/2 top-1/2 -translate-y-1/2 w-[40px] h-[40px] cursor-pointer"
+                  onClick={handleNext}
+                >
+                  <img
+                    src="/assets/buttons/button_right.png"
+                    alt="right"
+                    className="w-full h-full transition hover:brightness-80"
+                  />
+                </button>
+              </>
+            )}
+          </div>
+        )}
+      </div>
+      <RecentPlacesListMobile recentList={recentList} />
     </div>
   );
 };

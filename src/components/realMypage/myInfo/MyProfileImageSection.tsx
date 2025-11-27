@@ -12,7 +12,7 @@ const MyProfileImageSection = () => {
     <section className="w-full h-[150px] flex gap-[24px] items-center max-[1220px]:gap-[12px] max-[1220px]:justify-center">
       {/* 프로필 사진 */}
       <img
-        className="w-[150px] h-[150px] rounded-[16px] overflow-hidden"
+        className="w-[150px] h-[150px] rounded-[16px] overflow-hidden max-[1220px]:rounded-[8px]"
         src={
           profileImg ||
           "https://kr.object.ncloudstorage.com/catsgotogedogbucket/profile/default_user_image.png"

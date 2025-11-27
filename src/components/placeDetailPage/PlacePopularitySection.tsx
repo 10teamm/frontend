@@ -103,13 +103,13 @@ const PlacePupularitySection = ({
           className="w-fit h-fit flex gap-[2px] items-center cursor-pointer transition hover:underline underline-offset-[3px]"
           onClick={() => mobileShare(placeId)}
         >
-          <div className="w-full h-full block max-[700px]:hidden">
+          <div className="w-fit h-full block max-[700px]:hidden">
             <SVGIcons name="placedetailShare" width={24} height={24} color="" />
           </div>
           <div className="w-full h-full hidden max-[700px]:block">
             <SVGIcons name="placedetailShare" width={16} height={16} color="" />
           </div>
-          <p className="w-[49px] h-[20px] text-[14px] font-semibold max-[700px]:hidden">
+          <p className="text-[14px] font-semibold max-[700px]:hidden">
             공유하기
           </p>
         </button>

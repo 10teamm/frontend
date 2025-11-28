@@ -7,15 +7,27 @@ const SelectScheduleSection = () => {
   return (
     <section className="w-full h-[91px] flex flex-col gap-[24px]">
       {/* 일정 제목 */}
-      <h2 className="w-full h-[29px] font-semibold text-[18px]">
+      <h2 className="w-full h-[29px] font-semibold text-[18px] max-[700px]:text-[16px]">
         일정을 선택해주세요.
       </h2>
-      {/* 일정 칩 */}
-      <div className="w-full h-[38px] flex gap-[16px]">
+      {/* 일정 칩 데스크톱 */}
+      <div className="w-full h-[38px] flex gap-[16px] max-[700px]:hidden">
         {Object.keys(scheduleOptionsWithKey).map((current, i) => (
           <OptionSelectButton
             key={i}
             w={104}
+            value={current}
+            isActive={scheduleOptionsWithKey[current] === schedule}
+            onClick={() => setSchedule(scheduleOptionsWithKey[current])}
+          />
+        ))}
+      </div>
+      {/* 일정 칩 모바일 */}
+      <div className="w-full h-[38px] hidden gap-[16px] max-[700px]:flex">
+        {Object.keys(scheduleOptionsWithKey).map((current, i) => (
+          <OptionSelectButton
+            key={i}
+            w={80}
             value={current}
             isActive={scheduleOptionsWithKey[current] === schedule}
             onClick={() => setSchedule(scheduleOptionsWithKey[current])}

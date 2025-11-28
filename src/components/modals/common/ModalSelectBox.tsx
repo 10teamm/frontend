@@ -17,7 +17,7 @@ const ModalSelectBox = ({ options, value, onChange }: Props) => {
   return (
     <div className="flex-1">
       <Select value={value} onValueChange={onChange}>
-        <SelectTrigger className="w-[442px] !h-full px-[16px] py-[12px] text-[14px] text-[var(--search-element-text)] font-semibold bg-[var(--sem-fill-norm)] rounded-[8px] !shadow-none border-[1px] border-[var(--search-element-border)] cursor-pointer">
+        <SelectTrigger className="max-w-[442px] w-full !h-full px-[16px] py-[12px] text-[14px] text-[var(--search-element-text)] font-semibold bg-[var(--sem-fill-norm)] rounded-[8px] !shadow-none border-[1px] border-[var(--search-element-border)] cursor-pointer">
           <SelectValue placeholder={"선택해주세요"} />
         </SelectTrigger>
         <SelectContent>

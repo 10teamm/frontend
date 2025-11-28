@@ -58,7 +58,11 @@ const PhotoSlideModal = () => {
           </div>
         </ModalBackground>
       </div>
-      <PhotoSlideModalMobile onClose={modalClose} photoList={photoList} />
+      <PhotoSlideModalMobile
+        onClose={modalClose}
+        photoList={photoList}
+        clickedIndex={index}
+      />
     </>
   );
 };

@@ -6,9 +6,10 @@ import { useCarouselController } from "@/hooks/useCarouselController";
 interface Props {
   onClose: () => void;
   photoList: ResponseImage[];
+  clickedIndex: number;
 }
 
-const PhotoSlideModalMobile = ({ onClose, photoList }: Props) => {
+const PhotoSlideModalMobile = ({ onClose, photoList, clickedIndex }: Props) => {
   const { current, count, setApi } = useCarouselController(photoList);
   return (
     <div className="max-[1200px]:block fixed inset-0 z-40 bg-[var(--modal-mobile-photo)] hidden">
@@ -26,7 +27,13 @@ const PhotoSlideModalMobile = ({ onClose, photoList }: Props) => {
           </button>
         </div>
         <div className="max-w-[600px] w-full h-fit ">
-          <Carousel className="w-full" setApi={setApi}>
+          <Carousel
+            className="w-full"
+            setApi={setApi}
+            opts={{
+              startIndex: clickedIndex,
+            }}
+          >
             <CarouselContent>
               {photoList.map((photo, i) => (
                 <CarouselItem

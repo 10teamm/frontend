@@ -27,7 +27,7 @@ const SearchSelectBox = ({
       <Select value={value} onValueChange={onChange} disabled={isDisabled}>
         <SelectTrigger
           className="w-full !h-[48px] !px-[16px] font-semibold bg-[var(--search-element-bg)] !outline-none focus-visible:ring-[1px] focus-visible:ring-[var(--main-color)] !border-[1px] border-[var(--search-element-border)] text-[var(--place-neutral)] !text-[14px] rounded-[26px] cursor-pointer data-[placeholder]:text-[var(--place-neutral)]
-         max-[400px]:!text-[16px] max-[400px]:!h-[50px]"
+         max-[400px]:!text-[12px] max-[400px]:!h-[50px]"
         >
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>

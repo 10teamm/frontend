@@ -25,6 +25,7 @@ const PlannerResultArticle = () => {
       ) : (
         <ResultMapDiv places={filteredData!} />
       )}
+      <div id="modal-root" />
     </article>
   );
 };

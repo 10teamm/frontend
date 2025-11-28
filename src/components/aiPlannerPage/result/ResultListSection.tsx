@@ -7,7 +7,7 @@ interface Props {
 
 const ResultListSection = ({ filteredData }: Props) => {
   return (
-    <section className="w-full flex flex-col gap-[24px]">
+    <section className="w-full flex flex-col gap-[24px] ">
       {filteredData.dayContents.map((contents, i) => (
         <ResultListCard
           key={i}

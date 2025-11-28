@@ -3,46 +3,50 @@ import type { PetData } from "@/types/apiResponseTypes";
 import MyPetCard from "./MyPetCard";
 import MyPetAddCard from "./MyPetAddCard";
 import MyPetAddModal from "@/components/modals/MyPetAddModal";
-import { useMyPetSlideSection } from "@/hooks/useMyPetSlideSection";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import { useState } from "react";
+import { useCarouselController } from "@/hooks/useCarouselController";
 
 interface Props {
   petList?: PetData[];
 }
 
 const MyPetSlideSection = ({ petList = [] }: Props) => {
-  const { isOpen, setIsOpen, index, toggleLeft, toggleRight } =
-    useMyPetSlideSection({ petList });
+  const [isOpen, setIsOpen] = useState(false);
+  const { setApi, movePrev, moveNext } = useCarouselController(petList);
 
   return (
-    <section className="w-full h-[308px] flex items-center gap-[16px]">
-      <button className="w-[24px] h-[24px] cursor-pointer" onClick={toggleLeft}>
+    <section className="w-full h-fit flex items-center gap-[16px]">
+      <button
+        className="w-[24px] h-[24px] cursor-pointer max-[1220px]:hidden"
+        onClick={movePrev}
+      >
         <img
           src="/assets/buttons/button_photo_left.png"
           alt="left"
           className="w-full h-full"
         />
       </button>
-
-      <article className="w-[816px] h-[308px] mx-auto relative rounded-[14px] overflow-hidden">
-        {/* 카드 슬라이드 */}
-        <div
-          className="flex transition-transform duration-700 ease-in-out"
-          style={{
-            transform: `translateX(-${index * 816}px)`,
-            width: `${100 * (petList.length + 1)}%`,
-          }}
-        >
+      <Carousel className="max-w-[816px] w-full h-fit" setApi={setApi}>
+        <CarouselContent>
           {petList.map((pet, i) => (
-            <div key={i} className="w-[816px] flex-shrink-0">
+            <CarouselItem key={i}>
               <MyPetCard petData={pet} />
-            </div>
+            </CarouselItem>
           ))}
-          <MyPetAddCard setIsOpen={setIsOpen} />
-        </div>
-      </article>
+          <CarouselItem>
+            <MyPetAddCard setIsOpen={setIsOpen} />
+          </CarouselItem>
+        </CarouselContent>
+      </Carousel>
+
       <button
-        className="w-[24px] h-[24px] cursor-pointer"
-        onClick={toggleRight}
+        className="w-[24px] h-[24px] cursor-pointer  max-[1220px]:hidden"
+        onClick={moveNext}
       >
         <img
           src="/assets/buttons/button_photo_right.png"
@@ -50,6 +54,7 @@ const MyPetSlideSection = ({ petList = [] }: Props) => {
           className="w-full h-full"
         />
       </button>
+
       {isOpen && <MyPetAddModal onClose={() => setIsOpen(false)} />}
     </section>
   );

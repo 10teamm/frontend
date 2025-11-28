@@ -12,9 +12,9 @@ export default function NaverLoginButton() {
       <img
         src="/assets/logo/naver_logo.png"
         alt="naver logo"
-        className="w-[24px] h-[24px] max-[400px]:w-[16px] max-[700px]:h-[16px]"
+        className="w-[24px] h-[24px] max-[700px]:w-[16px] max-[700px]:h-[16px]"
       />
-      <p>네이버로 시작하기</p>
+      <p className="max-[700px]:text-[14px]">네이버로 시작하기</p>
     </button>
   );
 }

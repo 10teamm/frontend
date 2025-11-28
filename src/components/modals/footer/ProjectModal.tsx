@@ -11,7 +11,7 @@ const ProjectModal = ({ onClose }: ProjectModalProps) => {
   return (
     <ModalBackground onClose={onClose}>
       <div
-        className="bg-white rounded-lg p-8 w-[448px] max-h-[285px] max-[440px]:w-[80%] overflow-y-auto relative"
+        className="bg-white rounded-lg p-8 w-[448px] h-[285px] max-[440px]:h-fit max-[440px]:w-[80%] overflow-y-auto relative"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",

@@ -80,8 +80,10 @@ const MyNicknameInput = () => {
   };
 
   return (
-    <div className="w-full h-[40px] flex gap-[24px] items-center">
-      <p className="w-[45px] h-full flex items-center text-[16px]">이름</p>
+    <div className="w-full h-[40px] flex gap-[24px] items-center max-[1220px]:gap-[4px]">
+      <p className="w-[45px] h-full flex items-center text-[16px] flex-shrink-0 max-[1220px]:text-[12px] my-auto">
+        이름
+      </p>
       <Input
         ref={inputRef}
         value={value}
@@ -90,11 +92,13 @@ const MyNicknameInput = () => {
         onFocus={enableEditing}
         readOnly={!editing}
         maxLength={12}
-        className={`w-[332px] h-[40px] px-[16px] py-[12px] text-[14px] text-[var(--search-element-text)] font-semibold ${editing ? "bg-white cursor-text" : "bg-[var(--sem-fill-norm)] cursor-pointer"} rounded-[8px] !shadow-none border-[1px] border-[var(--search-element-border)]`}
+        className={`max-w-[332px] h-[40px] px-[16px] py-[12px] text-[14px] text-[var(--search-element-text)] font-semibold ${editing ? "bg-white cursor-text" : "bg-[var(--sem-fill-norm)] cursor-pointer"} rounded-[8px] !shadow-none border-[1px] border-[var(--search-element-border)]
+        max-[1220px]:w-full max-[1220px]:px-[8px] max-[1220px]:text-[12px] max-[1220px]:h-[36px]`}
         placeholder="닉네임을 입력하세요"
         aria-label="닉네임"
       />
-      <div className="w-fit h-[36px] flex gap-[10px]">
+      {/* 데스크톱 뷰 */}
+      <div className="w-fit h-[36px] flex gap-[10px] max-[1220px]:hidden">
         <DefaultButtonConfirm
           w={77}
           h={36}
@@ -109,6 +113,26 @@ const MyNicknameInput = () => {
             h={36}
             text="취소하기"
             textSize={14}
+            onClick={() => setEditing(false)}
+          />
+        )}
+      </div>
+      {/* 모바일 뷰 */}
+      <div className="w-fit h-[32px] hidden gap-[4px] max-[1220px]:flex">
+        <DefaultButtonConfirm
+          w={64}
+          h={32}
+          text="변경하기"
+          textSize={12}
+          onClick={handleSubmit}
+          isActive={editing}
+        />
+        {editing && (
+          <DefaultButtonCancel
+            w={64}
+            h={32}
+            text="취소하기"
+            textSize={12}
             onClick={() => setEditing(false)}
           />
         )}

@@ -22,7 +22,7 @@ const ReviewListSection = ({
   return (
     <section className="w-full h-fit flex flex-col">
       {/* 정렬버튼 */}
-      <div className="w-[148px] h-[24px] flex gap-[16px] ml-auto mb-[16px] max-[700px]:gap-[8px]">
+      <div className="w-fit h-[24px] flex gap-[16px] ml-auto mb-[16px] max-[700px]:gap-[8px]">
         <SortButton
           name={"인기 순"}
           isActive={sort === "r"}

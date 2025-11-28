@@ -6,11 +6,7 @@ import {
   getDistanceInKm,
   heartClickedWithLogin,
 } from "@/lib/searchResultCardUtils";
-import {
-  copyPlacePage,
-  loginConfirmAlert,
-  removeTags,
-} from "@/lib/commonUtils";
+import { loginConfirmAlert, mobileShare, removeTags } from "@/lib/commonUtils";
 import { useLocationStore } from "@/stores/locationStore";
 import SVGIcons from "../common/SVGIcons";
 import SvgButton from "../common/SvgButton";
@@ -71,7 +67,7 @@ const SearchResultCard = ({ cardData }: Props) => {
               svgname="thumbnailShare"
               width={40}
               height={40}
-              onClick={() => copyPlacePage(cardData.contentId.toString())}
+              onClick={() => mobileShare(cardData.contentId.toString())}
             />
           </div>
         </MainCard>

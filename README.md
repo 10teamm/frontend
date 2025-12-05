@@ -6,30 +6,31 @@
 
 ## 🛠️ Tech
 
-- Vite
 - React
 - TypeScript
 - tailwindcss
 - shadcn
 - svgr
 - zustand
+- Vite
+- npm
 - render
 - eslint + prettier
 - kakao api
 
 ## 📁 디렉토리 구조
 
+- pages: 페이지 폴더
 - components : 컴포넌트 폴더 (각 페이지 / 공용에 필요한 컴포넌트가 위치합니다.)
 - configs : 설정 폴더 (상수, 옵션 등)
 - hooks : 커스텀 훅 폴더
 - lib : 함수 모음 폴더
 - screens : 페이지 폴더 (메인화면, 로그인 화면, 마이페이지 등)
 - stores : zustand스토어 폴더
-- styles : 추가 스타일 폴더
+- styles : 커스텀 스타일 폴더
 - types : 타입 선언 폴더
 
 ---
 
-[어디가냥? 같이가개! 웹페이지](https://frontend-dev-bukp.onrender.com)  
-_가급적 서드파티 쿠키를 허용한 크롬 환경에서 테스트 해보시는 것을 권장합니다._
-
+[어디가냥? 같이가개! 웹페이지](https://catsgotogedog.com)  
+_가급적 서드파티 쿠키(or 크로스 웹사이트 추적)를 허용한 브라우저 환경에서 테스트 해보시는 것을 권장합니다._

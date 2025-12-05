@@ -46,13 +46,25 @@ const usePopularPlaces = () => {
   }, [resultList]);
 
   const mobileSlides = useMemo(() => {
+    const MAX_CARDS = 8;
+    const CARDS_PER_SLIDE = 3;
+
+    const list = resultList.slice(0, MAX_CARDS);
     const result: PopularCardData[][] = [];
-    for (let i = 0; i <= 6; i += 4) {
-      result.push(resultList.slice(i, Math.min(i + 4, 7)));
+
+    for (let i = 0; i < list.length; i += CARDS_PER_SLIDE) {
+      result.push(list.slice(i, i + CARDS_PER_SLIDE));
     }
 
-    if (result.length === 1 && resultList.length === 4) {
-      result.push([]);
+    const lastSlide = result[result.length - 1];
+
+    if (lastSlide && lastSlide.length === CARDS_PER_SLIDE) {
+      if (list.length < MAX_CARDS) {
+        result.push([]);
+      }
+    } else {
+      if (list.length < MAX_CARDS) {
+      }
     }
 
     return result;

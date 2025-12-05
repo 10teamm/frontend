@@ -6,7 +6,7 @@ interface Props {
 }
 const SearchResultList = ({ searchDataList }: Props) => {
   return (
-    <div className="w-full flex flex-col gap-[24px]">
+    <div className="w-full flex flex-col gap-[24px] max-[700px]:hidden">
       {searchDataList.map((data) => (
         <SearchResultCard key={data.contentId} cardData={data} />
       ))}

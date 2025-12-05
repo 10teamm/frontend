@@ -9,7 +9,8 @@ const OptionSelectButton = ({ w, value, isActive, onClick }: Props) => {
   return (
     <button
       style={{ width: w }}
-      className={`flex justify-center items-center h-[38px] rounded-[48px] border-[1px] border-[var(--main-color)] text-[16px] ${isActive ? "bg-[var(--main-color)] text-[var(--main-text)]" : "text-[var(--main-color)]"} cursor-pointer`}
+      className={`flex justify-center items-center h-[38px] rounded-[48px] border-[1px] border-[var(--main-color)] text-[16px] ${isActive ? "bg-[var(--main-color)] text-[var(--main-text)]" : "text-[var(--main-color)]"} cursor-pointer
+       max-[700px]:h-[34px] max-[700px]:text-[14px]`}
       onClick={onClick}
     >
       {value}

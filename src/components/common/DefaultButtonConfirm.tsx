@@ -18,9 +18,9 @@ const DefaultButtonConfirm = ({
   return (
     <button
       style={{ width: w, height: h, fontSize: textSize }}
-      className={`rounded-[10px] bg-[var(--main-color)] text-[var(--main-text)] font-semibold flex justify-center items-center ${
+      className={`rounded-[10px] bg-[var(--main-color)] text-[var(--main-text)] font-semibold flex justify-center items-center max-[1220px]:rounded-[6px] ${
         !isActive
-          ? "cursor-not-allowed"
+          ? "cursor-not-allowed brightness-85"
           : "cursor-pointer transition hover:brightness-85"
       }`}
       onClick={onClick}

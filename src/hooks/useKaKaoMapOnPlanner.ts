@@ -118,7 +118,12 @@ const useKakaoMapOnPlanner = ({ item }: Props) => {
       // 이미 맵 인스턴스가 있으면 center와 마커만 업데이트
       if (mapInstance.current) {
         const center = new kakao.maps.LatLng(mapCenter?.mapY, mapCenter?.mapX);
-        setCenterWithOffset(mapInstance.current, center, 200, 0);
+
+        if (window.innerWidth < 700) {
+          mapInstance.current.setCenter(center); // 그냥 중앙
+        } else {
+          setCenterWithOffset(mapInstance.current, center, 200, 0); // 사이드바 고려
+        }
 
         clearMarkers();
         addMarkers();
@@ -132,19 +137,6 @@ const useKakaoMapOnPlanner = ({ item }: Props) => {
       };
 
       mapInstance.current = new kakao.maps.Map(mapRef.current, options);
-
-      // 줌 & 맵 타입 컨트롤러 생성 및 추가
-      const mapTypeControl = new kakao.maps.MapTypeControl();
-      const zoomControl = new kakao.maps.ZoomControl();
-
-      mapInstance.current.addControl(
-        mapTypeControl,
-        kakao.maps.ControlPosition.TOPRIGHT
-      );
-      mapInstance.current.addControl(
-        zoomControl,
-        kakao.maps.ControlPosition.RIGHT
-      );
 
       addMarkers();
     });

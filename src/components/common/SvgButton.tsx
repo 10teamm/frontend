@@ -10,7 +10,7 @@ interface Props {
 const SvgButton = ({ svgname, width, height, onClick, color }: Props) => {
   return (
     <button
-      className="w-[40px] h-[40px] cursor-pointer"
+      className="w-[40px] h-[40px] cursor-pointer max-[700px]:w-[24px] max-[700px]:h-[24px]"
       onClick={(e) => {
         e.stopPropagation();
         onClick();

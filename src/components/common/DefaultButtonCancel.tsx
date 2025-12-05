@@ -10,7 +10,7 @@ const DefaultButtonCancel = ({ w, h, text, textSize, onClick }: Props) => {
   return (
     <button
       style={{ width: w, height: h, fontSize: textSize }}
-      className={`rounded-[10px] bg-[var(--indicator-disabled)] text-[var(--card-subText)] font-semibold cursor-pointer flex justify-center items-center transition hover:brightness-85`}
+      className={`rounded-[10px] bg-[var(--indicator-disabled)] text-[var(--card-subText)] font-semibold cursor-pointer flex justify-center items-center transition hover:brightness-85 max-[1220px]:rounded-[6px]`}
       onClick={onClick}
     >
       {text}

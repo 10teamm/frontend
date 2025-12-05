@@ -3,8 +3,9 @@ import WishCard from "@/components/mypage/WishCard";
 import Pagination from "@/components/mypage/Pagination";
 import { useAuthStore } from "@/stores/authStore";
 import { fetchWishList } from "@/lib/apiUtils";
+import WishPlacesListMobile from "../realMypage/mywish/WishPlacesListMobile";
 
-interface WishItem {
+export interface WishItem {
   id: number;
   name: string;
   image: string;
@@ -131,14 +132,18 @@ const WishPlaces = () => {
   if (isLoading)
     return (
       <div className="mt-12 mb-16 w-[939px]">
-        <h2 className="text-xl font-semibold mb-6">찜한 장소</h2>
+        <h2 className="text-[20px] font-semibold mb-6 max-[1220px]:text-[18px]">
+          찜한 장소
+        </h2>
         <div className="text-center py-12 text-gray-500">로딩 중...</div>
       </div>
     );
   if (wishList.length === 0)
     return (
       <div className="mt-12 mb-16 w-[939px]">
-        <h2 className="text-[20px] font-semibold mb-6">찜한 장소</h2>
+        <h2 className="text-[20px] font-semibold mb-6 max-[1220px]:text-[18px]">
+          찜한 장소
+        </h2>
         <div className="text-center py-12 text-gray-500">
           찜한 장소가 없습니다.
         </div>
@@ -146,9 +151,11 @@ const WishPlaces = () => {
     );
 
   return (
-    <div className="w-[939px]">
-      <h2 className="text-xl font-semibold mb-6">찜한 장소</h2>
-      <div className="grid grid-cols-4 gap-2 mb-8">
+    <div className="w-full">
+      <h2 className="text-[20px] font-semibold mb-6 max-[1220px]:text-[18px]">
+        찜한 장소
+      </h2>
+      <div className="grid grid-cols-4 gap-2 mb-8 max-[1200px]:hidden">
         {paginatedWish.map((item, index) => (
           <WishCard
             key={index}
@@ -161,6 +168,7 @@ const WishPlaces = () => {
           />
         ))}
       </div>
+      <WishPlacesListMobile wishList={wishList} />
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}

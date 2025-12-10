@@ -5,7 +5,7 @@ const MyPetSection = () => {
   const { petList } = useMyPetSection();
   return (
     <section className="w-full h-fit flex flex-col gap-[16px]">
-      <h2 className="w-full h-[32px] font-semibold text-[20px]">
+      <h2 className="w-full h-[32px] font-semibold text-[20px] max-[1220px]:text-[18px]">
         반려동물 정보
       </h2>
 

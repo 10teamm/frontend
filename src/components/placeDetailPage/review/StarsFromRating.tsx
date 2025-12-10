@@ -11,7 +11,7 @@ const StarsFromRating = ({ rating }: Props) => {
   for (let i = 1; i <= 5; i++) {
     if (rating >= i) {
       stars.push(
-        <img key={i} src={fullStar} alt="별" className="w-[24px] h-[24px]" />,
+        <img key={i} src={fullStar} alt="별" className="h-full aspect-square" />
       );
     } else if (rating >= i - 0.5) {
       stars.push(
@@ -19,8 +19,8 @@ const StarsFromRating = ({ rating }: Props) => {
           key={i}
           src={halfStar}
           alt="반 별"
-          className="w-[24px] h-[24px]"
-        />,
+          className="h-full aspect-square"
+        />
       );
     } else {
       stars.push(
@@ -28,12 +28,16 @@ const StarsFromRating = ({ rating }: Props) => {
           key={i}
           src={emptyStar}
           alt="빈 별"
-          className="w-[24px] h-[24px]"
-        />,
+          className="h-full aspect-square"
+        />
       );
     }
   }
-  return <div className="w-[120px] h-[24px] flex">{stars}</div>;
+  return (
+    <div className="w-[120px] h-[24px] flex max-[700px]:w-[80px] max-[700px]:h-[16px]">
+      {stars}
+    </div>
+  );
 };
 
 export default StarsFromRating;

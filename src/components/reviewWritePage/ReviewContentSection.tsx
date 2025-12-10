@@ -16,10 +16,10 @@ const ReveiwContentSection = ({
   maxLength,
 }: Props) => {
   return (
-    <section className="w-full h-[174px] flex gap-[44px]">
+    <section className="w-full h-fit flex gap-[44px]">
       <MenuLabel text="상세 리뷰" />
       {/* 별점 + 리뷰 내용 */}
-      <div className="w-[1056px] h-full flex flex-col gap-[9px]">
+      <div className="w-full  h-full flex flex-col gap-[9px]">
         <StarRatingInput value={score} onChange={setScore} size={24} />
         <div className="w-full h-[141px]  relative">
           <textarea

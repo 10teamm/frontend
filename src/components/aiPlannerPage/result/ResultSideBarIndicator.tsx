@@ -1,3 +1,4 @@
+import ModalPortal from "@/components/modals/common/ModalPortal";
 import PlannerEscapeModal from "@/components/modals/PlannerEscapeModal";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -39,10 +40,14 @@ const ResultSideBarIndicator = ({ setIsResultOpen, isResultOpen }: Props) => {
 
       {/* 나가기 모달 */}
       {isModalOpen && (
-        <PlannerEscapeModal
-          onClose={() => setIsModalOpen(false)}
-          onConfirm={() => navigate("/", { replace: true })}
-        />
+        <ModalPortal>
+          <div className="App">
+            <PlannerEscapeModal
+              onClose={() => setIsModalOpen(false)}
+              onConfirm={() => navigate("/", { replace: true })}
+            />
+          </div>
+        </ModalPortal>
       )}
     </header>
   );

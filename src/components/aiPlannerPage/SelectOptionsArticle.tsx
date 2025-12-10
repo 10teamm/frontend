@@ -7,7 +7,7 @@ import SelectScheduleSection from "./select/SelectScheduleSection";
 const SelectOptionsArticle = () => {
   return (
     <MainContainer>
-      <article className="py-[78px] flex flex-col gap-[164px] w-full h-[927px]">
+      <article className="py-[78px] flex flex-col gap-[164px] w-full h-fit max-[700px]:gap-[80px]">
         <SelectRegionSection />
         <SelectScheduleSection />
         <div className="w-full h-[170px] flex flex-col gap-[32px]">

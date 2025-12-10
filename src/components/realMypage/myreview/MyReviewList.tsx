@@ -7,7 +7,7 @@ interface Props {
 
 const MyReviewList = ({ reviews }: Props) => {
   return (
-    <section className="w-full h-fit flex flex-col gap-[44px]">
+    <section className="w-full h-fit flex flex-col gap-[44px] max-[1220px]:gap-[20px]">
       {reviews.map((review) => (
         <MyReviewCard key={review.reviewId} review={review} />
       ))}

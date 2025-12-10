@@ -11,7 +11,7 @@ const PrivacyPolicyModal = ({ onClose }: PrivacyPolicyModalProps) => {
   return (
     <ModalBackground onClose={onClose}>
       <div
-        className="bg-white rounded-lg p-8 w-[448px] h-[700px] overflow-y-auto"
+        className="bg-white rounded-lg p-8 w-[440px] h-[80%] max-[440px]:w-[80%] overflow-y-auto"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",

@@ -55,5 +55,5 @@
 
 ---
 
-[어디가냥? 같이가개! 웹페이지](https://frontend-dev-bukp.onrender.com)  
+[어디가냥? 같이가개! 웹페이지](https://catsgotogedog.com)  
 _가급적 서드파티 쿠키를 허용한 크롬 환경에서 테스트 해보시는 것을 권장합니다._

@@ -5,9 +5,11 @@ interface Props {
 }
 const ReviewTitleSection = ({ title }: Props) => {
   return (
-    <section className="w-fit h-[32px] flex items-center gap-[44px] font-semibold">
+    <section className="w-full h-[50px] flex items-center gap-[44px]">
       <MenuLabel text="방문한 장소" />
-      <p className="w-fit h-full text-[18px] flex items-center">{title}</p>
+      <p className="w-fit h-full text-[18px] font-semibold flex items-center">
+        {title}
+      </p>
     </section>
   );
 };

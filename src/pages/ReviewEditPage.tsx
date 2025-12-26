@@ -37,7 +37,7 @@ const ReviewEditPage = () => {
 
   return (
     <MainContainer>
-      <section className="w-full h-[867px] flex flex-col gap-[44px] pt-[96px] pb-[44px]">
+      <section className="w-full h-fit flex flex-col gap-[44px] pt-[96px] pb-[44px]">
         <h1 className="w-[89px] h-[38px] font-semibold text-[24px]">
           리뷰 수정
         </h1>
@@ -47,9 +47,9 @@ const ReviewEditPage = () => {
             불러오는 중...
           </p>
         ) : (
-          <div className="w-full h-[645px] flex flex-col gap-[68px]">
+          <div className="w-full h-fit flex flex-col gap-[68px]">
             {/* 제목 + 리뷰 +사진첨부 */}
-            <div className="w-full h-[532px] flex flex-col gap-[72px]">
+            <div className="w-full h-fit flex flex-col gap-[72px]">
               {/* 제목 + 리뷰 */}
               <div className="w-full h-[250px] flex flex-col gap-[44px]">
                 {/* 제목 */}

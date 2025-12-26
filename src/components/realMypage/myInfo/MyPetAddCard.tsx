@@ -5,7 +5,7 @@ interface Props {
 }
 const MyPetAddCard = ({ setIsOpen }: Props) => {
   return (
-    <div className="w-[816px] h-[308px] border-[1px] border-[var(--search-element-border)] rounded-[16px] px-[32px] py-[24px] flex flex-col gap-[24px] justify-center items-center">
+    <div className="max-w-[816px] w-full h-full border-[1px] border-[var(--search-element-border)] rounded-[16px] px-[32px] py-[24px] flex flex-col gap-[24px] justify-center items-center">
       <button
         className="w-12 h-12 cursor-pointer"
         onClick={() => setIsOpen(true)}

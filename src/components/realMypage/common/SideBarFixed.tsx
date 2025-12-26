@@ -4,7 +4,7 @@ import SideBarButton from "./SideBarButton";
 const SideBarFixed = () => {
   const location = useLocation();
   return (
-    <aside className="w-[155px] h-[144px] flex flex-col">
+    <aside className="min-w-[155px] h-fit flex flex-col gap-[8px] max-[1220px]:hidden">
       <SideBarButton
         href="/myinfo"
         inner="내 정보"

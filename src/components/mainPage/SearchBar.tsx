@@ -46,18 +46,16 @@ const SearchBar = () => {
           isDisabled={!user}
         /> */}
 
-        <div className="relative h-[48px] flex-1">
+        <div className="relative h-fit flex-1">
           <img
             src="/assets/icons/search.png"
             alt="search_icon"
-            className="absolute left-[16px] top-[12px] w-[24px] h-[24px] 
-            max-[700px]:top-[13px]
-            "
+            className="absolute top-1/2 -translate-y-1/2 left-[16px] w-[24px] aspect-square max-[700px]:left-[12px] max-[700px]:w-[20px]"
           />
           <Input
             id="place_input"
             className="w-full h-[48px] rounded-[26px] font-semibold bg-[var(--search-element-bg)] !text-[14px] pl-[44px] focus:ring-[1px] focus:ring-[var(--main-color)] placeholder:text-[var(--place-neutral)]
-            max-[400px]:!text-[16px] max-[400px]:!h-[40px] max-[400px]:placeholder:text-[12px]"
+            max-[700px]:pl-[36px] max-[400px]:!text-[16px] max-[400px]:!h-[40px] max-[400px]:placeholder:text-[12px]"
             placeholder="장소명"
             defaultValue={inputkeyword}
             onChange={(e) => setInputKeyword(e.target.value)}

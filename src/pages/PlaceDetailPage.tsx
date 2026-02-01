@@ -1,3 +1,4 @@
+import LoadingWheel from "@/components/common/LoadingWheel";
 import ScrollToTopButton from "@/components/common/ScrollToTopButton";
 import MainContainer from "@/components/layout/MainContainer";
 import PhotoSlideModal from "@/components/modals/PhotoSlideModal";
@@ -20,7 +21,7 @@ const PlaceDetailPage = () => {
       <title>어디가냥?같이가개! | 상세페이지 </title>
       <meta name="description" content={`어디가냥?같이가개! 상세 페이지`} />
       {loading ? (
-        <p>불러오는 중...</p>
+        <LoadingWheel />
       ) : (
         <article>
           <ScrollToTopButton />

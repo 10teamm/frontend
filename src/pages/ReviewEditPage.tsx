@@ -11,6 +11,7 @@ import ReveiwContentSection from "@/components/reviewWritePage/ReviewContentSect
 import ReviewTitleSection from "@/components/reviewWritePage/ReviewTitleSection";
 import ReviewSubmitSection from "@/components/reviewWritePage/ReviewSubmitSection";
 import ReviewEditAttatchSection from "@/components/reviewEditPage/ReviewEditAttatchSection";
+import LoadingWheel from "@/components/common/LoadingWheel";
 
 const ReviewEditPage = () => {
   const { id } = useParams();
@@ -43,9 +44,7 @@ const ReviewEditPage = () => {
         </h1>
         {/* 제목 + 리뷰 + 사진 첨부 + 제출 버튼 */}
         {loading ? (
-          <p className="text-center text-[14px] text-[var(--place-neutral)] py-8">
-            불러오는 중...
-          </p>
+          <LoadingWheel />
         ) : (
           <div className="w-full h-fit flex flex-col gap-[68px]">
             {/* 제목 + 리뷰 +사진첨부 */}

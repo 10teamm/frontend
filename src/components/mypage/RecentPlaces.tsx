@@ -47,8 +47,8 @@ const RecentPlaces = () => {
   const handleToggleWish = (id: number) => {
     setRecentList((prev) =>
       prev.map((place) =>
-        place.id === id ? { ...place, isWished: !place.isWished } : place
-      )
+        place.id === id ? { ...place, isWished: !place.isWished } : place,
+      ),
     );
   };
 
@@ -107,7 +107,7 @@ const RecentPlaces = () => {
         최근 본 장소
       </h2>
       {/* 데스크톱 뷰 */}
-      <div className="max-[1200px]:hidden block">
+      <div className="max-[1220px]:hidden block">
         {recentList.length <= 4 ? (
           <div className="w-full h-fit flex gap-[16px]">
             {recentList.map((place, index) => (

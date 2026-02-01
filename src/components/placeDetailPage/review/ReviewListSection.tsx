@@ -2,6 +2,7 @@ import ReviewList from "./ReviewList";
 import SortButton from "../../common/SortButton";
 import type { Review } from "@/types/apiResponseTypes";
 import MobileReviewList from "./MobileReviewList";
+import LoadingWheel from "@/components/common/LoadingWheel";
 
 interface Props {
   sort: "r" | "c";
@@ -37,9 +38,7 @@ const ReviewListSection = ({
 
       {/* 리뷰 리스트 */}
       {loading ? (
-        <p className="text-center text-[14px] text-[var(--place-neutral)] py-8">
-          불러오는 중...
-        </p>
+        <LoadingWheel />
       ) : reviews.length > 0 ? (
         <>
           <ReviewList reviews={reviews} />

@@ -1,6 +1,7 @@
 import { usePopularPlaces } from "@/hooks/usePopularPlaces";
 import SearchResultList from "../searchPage/SearchResultList";
 import MobileResultList from "../searchPage/MobileResultList";
+import LoadingWheel from "../common/LoadingWheel";
 
 const PopularPlacesSection = () => {
   const { loading, resultList } = usePopularPlaces();
@@ -11,9 +12,7 @@ const PopularPlacesSection = () => {
         <p className="font-semibold text-[24px] ">랭킹 Top 20</p>
       </div>
       {loading ? (
-        <p className="text-center text-[14px] text-[var(--place-neutral)] py-8">
-          불러오는 중...
-        </p>
+        <LoadingWheel />
       ) : resultList.length < 1 ? (
         <p className="text-center text-[14px] text-[var(--place-neutral)] py-8">
           집계된 장소가 없습니다.

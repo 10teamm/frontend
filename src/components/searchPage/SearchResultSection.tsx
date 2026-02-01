@@ -3,6 +3,7 @@ import SortButton from "../common/SortButton";
 import { useSearchListSection } from "@/hooks/useSearchListSection";
 import { useLocationStore } from "@/stores/locationStore";
 import MobileResultList from "./MobileResultList";
+import LoadingWheel from "../common/LoadingWheel";
 
 const SearchResultSection = () => {
   const {
@@ -51,9 +52,7 @@ const SearchResultSection = () => {
         </div>
       </div>
       {loading ? (
-        <p className="text-center text-[14px] text-[var(--place-neutral)] py-8">
-          불러오는 중...
-        </p>
+        <LoadingWheel />
       ) : resultList.length > 0 ? (
         <>
           <SearchResultList searchDataList={slicedData} />

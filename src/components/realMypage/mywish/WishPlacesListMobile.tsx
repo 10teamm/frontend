@@ -7,7 +7,7 @@ interface Props {
 
 const WishPlacesListMobile = ({ wishList }: Props) => {
   return (
-    <div className="w-full grid-cols-4 grid-rows-2 gap-[6px] max-[700px]:grid hidden mb-[36px]">
+    <div className="w-full grid-cols-4 grid-rows-2 gap-[6px] max-[1220px]:grid hidden mb-[36px]">
       {wishList.map((place, i) => (
         <WishRecentCardMobile key={i} cardData={place} />
       ))}

@@ -1,6 +1,6 @@
 import GoogleLoginButton from "@/components/loginPage/GoogleLoginButton";
 import KakaoLoginButton from "@/components/loginPage/KakaoLoginButton";
-import NaverLoginButton from "@/components/loginPage/NaverLoginButton";
+//import NaverLoginButton from "@/components/loginPage/NaverLoginButton";
 import AutoLoginCheckBox from "@/components/loginPage/AutoLoginCheckBox";
 
 const LoginPage = () => {

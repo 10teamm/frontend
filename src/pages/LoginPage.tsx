@@ -18,7 +18,7 @@ const LoginPage = () => {
       <div className="max-w-[514px] w-full flex flex-col gap-[64px] max-[400px]:gap-[24px]">
         <div className="w-full h-fit flex flex-col gap-[16px]">
           <KakaoLoginButton />
-          <NaverLoginButton />
+          {/* <NaverLoginButton /> */}
           <GoogleLoginButton />
         </div>
 

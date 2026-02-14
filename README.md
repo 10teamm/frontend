@@ -32,5 +32,5 @@
 
 ---
 
-[어디가냥? 같이가개! 웹페이지](https://catsgotogedog.com)  
-_가급적 서드파티 쿠키(or 크로스 웹사이트 추적)를 허용한 브라우저 환경에서 테스트 해보시는 것을 권장합니다._
+[어디가냥? 같이가개! 웹페이지](https://frontend-dev-bukp.onrender.com)  
+_배포 URL의 CORS 이슈로 인한 개발 URL 게시_
